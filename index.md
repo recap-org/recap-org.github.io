@@ -1,6 +1,7 @@
 ---
 title: Home
 layout: home
+nav_order: 1
 ---
 
 The goal of RECAP is to make reproducible workflows and good research practices accessible to social scientists by generating ready-to-use GitHub template repositories. Users select the statistical language(s) (R, Python, Stata) and their intended use case (research paper, course material, or in-class data activity), and receive a standardized project structure that integrates containerized environments, dependency management, version control, and LaTeX pipelines. The templates also come with tutorials and video capsules for teaching and research purposes.

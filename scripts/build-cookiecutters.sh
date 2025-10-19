@@ -17,72 +17,54 @@ echo "Output directory: $OUTPUT_DIR"
 # Create output directory
 mkdir -p "$OUTPUT_DIR"
 
-# Function to create a cookiecutter zip with specific latex option
-build_template() {
+
+
+
+# Function to generate and zip a rendered cookiecutter project for a specific latex option
+build_rendered_project() {
     local latex_option=$1
     local output_name="recap-data-template-latex-${latex_option}.zip"
-    local temp_dir=$(mktemp -d)
-    
-    echo "Building template with latex=$latex_option..."
-    
-    # Copy the cookiecutter template to temp directory
-    cp -r "$COOKIECUTTER_DIR" "$temp_dir/<<cookiecutter.__project_slug>>"
-    
-    # Create a default config for this variant
+    # Use a unique, persistent temp dir for each variant
+    local temp_dir="$PROJECT_ROOT/.cookiecutter-build-tmp-$latex_option-$$"
+    mkdir -p "$temp_dir"
+    local project_dir="$temp_dir/rendered-project"
+
+    echo "Generating rendered project with latex=$latex_option..."
+
+    # Create a cookiecutter config file for non-interactive generation (no project_name, so default is used)
     cat > "$temp_dir/cookiecutter-config.yaml" <<EOF
 default_context:
-  project_name: "my-project"
-  r: true
-  r_version: "4.5.1"
-  latex: "$latex_option"
-  first_name: "Morgan"
-  last_name: "Doe"
-  email: "morgan.doe@example.com"
-  institution: "Your Institution"
+    r: true
+    r_version: "4.5.1"
+    latex: "$latex_option"
+    first_name: "Morgan"
+    last_name: "Doe"
+    email: "morgan.doe@example.com"
+    institution: "Your Institution"
 EOF
-    
-    # Create a README for the template
-    cat > "$temp_dir/README.md" <<EOF
-# RECAP Data Template (LaTeX: $latex_option)
 
-This is a pre-configured cookiecutter template for reproducible data projects.
+    # Run cookiecutter CLI to generate the project non-interactively
+    cookiecutter --no-input --config-file "$temp_dir/cookiecutter-config.yaml" \
+        --output-dir "$temp_dir" "$COOKIECUTTER_DIR"
 
-## Configuration
+    # Find the generated project directory (should be $temp_dir/my-project or similar)
+    local generated_dir=$(find "$temp_dir" -mindepth 1 -maxdepth 1 -type d ! -name rendered-project)
+    mv "$generated_dir" "$project_dir"
 
-This template variant includes:
-- **LaTeX package list**: $latex_option
-- R support with renv
-- Quarto for literate programming
-- Dev container configuration
+    # Zip the rendered project (using subshell to avoid changing working directory)
+    # Zip from inside rendered-project so the archive doesn't have a top-level folder
+    (cd "$project_dir" && zip -r "$OUTPUT_DIR/$output_name" . -x "*.pyc" -x "__pycache__/*" -x "*.DS_Store")
 
-## Usage
-
-1. Install cookiecutter: \`pip install cookiecutter\`
-2. Extract this zip file
-3. Run: \`cookiecutter path/to/<<cookiecutter.__project_slug>>\`
-4. Answer the prompts to customize your project
-
-## Customization
-
-You can modify the default values in \`cookiecutter.json\` before running cookiecutter.
-
-For more information, visit: https://recap-org.github.io
-EOF
-    
-    # Create the zip file
-    cd "$temp_dir"
-    zip -r "$OUTPUT_DIR/$output_name" . -x "*.pyc" -x "__pycache__/*" -x "*.DS_Store"
-    
     echo "Created $output_name"
-    
+
     # Cleanup
     rm -rf "$temp_dir"
 }
 
-# Build all three variants
-build_template "auto"
-build_template "full"
-build_template "curated"
+# Build all three variants as rendered projects
+build_rendered_project "auto"
+build_rendered_project "full"
+build_rendered_project "curated"
 
 echo "All templates built successfully!"
 echo "Output location: $OUTPUT_DIR"

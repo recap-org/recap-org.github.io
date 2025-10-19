@@ -16,9 +16,63 @@
         var form = document.getElementById('template-selector');
         if (!form) return;
         var result = document.getElementById('template-result');
-        var badge = document.getElementById('badge-latex');
-        var button = document.getElementById('get-download-button');
-        var baseUrl = (form.dataset && form.dataset.baseurl) ? form.dataset.baseurl : '';
+        var backendUrl = (form.dataset && form.dataset.backend) ? form.dataset.backend : '';
+        var currentSelection = null;
+
+        function toSlug(str) {
+            return String(str || '')
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/(^-|-$)+/g, '');
+        }
+
+        function generateAndDownload() {
+            if (!backendUrl) {
+                alert('Backend URL is not configured.');
+                return;
+            }
+            if (!currentSelection) {
+                alert('Please select options and submit the form first.');
+                return;
+            }
+            var projectName = window.prompt('Project name for your template:', 'recap-data-project');
+            if (!projectName) return;
+
+            // Build payload based on current selection
+            var payload = {
+                template_name: 'data',
+                project_name: projectName,
+                r: currentSelection.languages.indexOf('R') !== -1,
+                r_version: '4.5.1',
+                latex: currentSelection.latex
+                // Optional fields like first_name, last_name, email, institution can be added later
+            };
+
+            fetch(backendUrl.replace(/\/$/, '') + '/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/zip'
+                },
+                body: JSON.stringify(payload)
+            }).then(function (res) {
+                if (!res.ok) throw new Error('Generation failed: ' + res.status);
+                return res.blob();
+            }).then(function (blob) {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                var name = toSlug(projectName) || 'recap-template';
+                a.href = url;
+                a.download = name + '.zip';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+            }).catch(function (err) {
+                console.error(err);
+                alert('Could not generate template. Please try again later.');
+            });
+        }
 
         function handleSubmit(event) {
             if (event && typeof event.preventDefault === 'function') event.preventDefault();
@@ -47,12 +101,15 @@
                 if (recapLang) recapLang.textContent = languages.join(', ');
                 if (recapUse) recapUse.textContent = usecase.value;
                 if (recapLatex) recapLatex.textContent = latex;
-                // Set download link
-                var zipName = 'recap-data-template-latex-' + latex + '.zip';
-                var href = (baseUrl || '') + '/downloads/' + zipName;
+                // Store selection for backend generation
+                currentSelection = { languages: languages, usecase: usecase.value, latex: latex };
+                // Wire download button to generate
                 var downloadBtn = document.getElementById('download-template');
                 if (downloadBtn) {
-                    downloadBtn.href = href;
+                    downloadBtn.onclick = function (e) {
+                        if (e && e.preventDefault) e.preventDefault();
+                        generateAndDownload();
+                    };
                 }
             }
             // Reset button
@@ -69,14 +126,17 @@
         }
 
         function updateBadge() {
-            if (!badge) return;
             var latex = getCheckedRadioValue(form, 'latex-packages', 'auto');
             var label = 'LaTeX-' + latex;
-            badge.src = 'https://img.shields.io/badge/' + encodeURIComponent(label) + '-008080?logo=latex&logoColor=white';
-            badge.alt = 'LaTeX ' + latex;
+            var src = 'https://img.shields.io/badge/' + encodeURIComponent(label) + '-008080?logo=latex&logoColor=white';
+            var badges = qsa(document, '#badge-latex, #badge-latex-result');
+            badges.forEach(function (img) {
+                img.src = src;
+                img.alt = 'LaTeX ' + latex;
+            });
         }
 
-        if (button) form.addEventListener('submit', handleSubmit);
+        form.addEventListener('submit', handleSubmit);
         form.addEventListener('change', updateBadge);
     });
 })();

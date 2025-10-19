@@ -9,7 +9,7 @@ The goal of RECAP is to make reproducible workflows and good research practices 
 # Getting started
 
 <!-- Template selector form: choose languages and use case -->
-<form id="template-selector" action="#" method="get" class="template-form" aria-labelledby="template-form-heading" data-baseurl="{{ site.url }}{{ site.baseurl }}">
+<form id="template-selector" action="#" method="get" class="template-form" aria-labelledby="template-form-heading" data-backend="https://recap-org-backend.onrender.com">
 	<h2 id="template-form-heading">Choose your template</h2>
 	<p id="form-instructions">Select at least one statistical language and one use case.</p>
 
@@ -86,7 +86,7 @@ The goal of RECAP is to make reproducible workflows and good research practices 
 		</ul>
 		<div style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem">
 			<img alt="R" src="https://img.shields.io/badge/Language-R-276DC3?logo=R&logoColor=white" />
-			<img id="badge-latex" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080?logo=latex&logoColor=white" />
+			<img id="badge-latex-result" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080?logo=latex&logoColor=white" />
 			<img alt="Codespace" src="https://img.shields.io/badge/Dev%20Container-ready-0DB7ED?logo=github&logoColor=white" />
 		</div>
 		<div style="display: flex; justify-content: space-between">

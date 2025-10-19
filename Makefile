@@ -4,12 +4,7 @@ help:
 	@echo "Available targets:"
 	@echo "  make build      - Build the Jekyll site with cookiecutter templates"
 	@echo "  make serve      - Serve the site locally for development"
-	@echo "  make templates  - Build only the cookiecutter templates"
 	@echo "  make clean      - Clean build artifacts"
-
-templates:
-	@echo "Building cookiecutter templates..."
-	@bash scripts/build-cookiecutters.sh
 
 build: templates
 	@echo "Building Jekyll site..."

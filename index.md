@@ -138,8 +138,18 @@ The goal of RECAP is to make reproducible workflows and good research practices 
 				</ul>
 				<!-- Action buttons -->
 				<div style="display: flex; gap: .5em; margin-bottom: 1em;">
-					<a class="btn btn-secondary" id="download-template" href="#">Download</a>
-					<button id="use-on-github-btn" class="btn btn-primary">Use on GitHub</button>
+						<a class="btn btn-secondary" id="download-template" href="#">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:4px;"><path fill="currentColor" d="M12 16l4-5h-3V4h-2v7H8z"/><path fill="currentColor" d="M5 18h14v2H5z"/></svg>
+							Download
+						</a>
+						<button id="create-public-repo-btn" class="btn btn-secondary">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:4px;"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.36 6.84 9.71c.5.09.68-.22.68-.48c0-.24-.01-.87-.01-1.7c-2.78.62-3.37-1.36-3.37-1.36c-.41-1.07-1-1.36-1-1.36c-.82-.57.06-.56.06-.56c.91.07 1.39.95 1.39.95c.81 1.41 2.13 1 2.65.77c.08-.59.32-1 .58-1.23c-2.22-.26-4.56-1.14-4.56-5.07c0-1.12.39-2.03 1.03-2.75c-.1-.26-.45-1.3.1-2.71c0 0 .84-.28 2.75 1.05c.8-.23 1.66-.34 2.52-.34c.86 0 1.72.12 2.52.34c1.91-1.33 2.75-1.05 2.75-1.05c.55 1.41.2 2.45.1 2.71c.64.72 1.03 1.63 1.03 2.75c0 3.94-2.34 4.81-4.57 5.07c.33.29.62.85.62 1.72c0 1.24-.01 2.24-.01 2.54c0 .27.18.58.69.48C19.13 20.62 22 16.77 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+							Create Public Repo
+						</button>
+						<button id="create-private-repo-btn" class="btn btn-primary">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:4px;"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.36 6.84 9.71c.5.09.68-.22.68-.48c0-.24-.01-.87-.01-1.7c-2.78.62-3.37-1.36-3.37-1.36c-.41-1.07-1-1.36-1-1.36c-.82-.57.06-.56.06-.56c.91.07 1.39.95 1.39.95c.81 1.41 2.13 1 2.65.77c.08-.59.32-1 .58-1.23c-2.22-.26-4.56-1.14-4.56-5.07c0-1.12.39-2.03 1.03-2.75c-.1-.26-.45-1.3.1-2.71c0 0 .84-.28 2.75 1.05c.8-.23 1.66-.34 2.52-.34c.86 0 1.72.12 2.52.34c1.91-1.33 2.75-1.05 2.75-1.05c.55 1.41.2 2.45.1 2.71c.64.72 1.03 1.63 1.03 2.75c0 3.94-2.34 4.81-4.57 5.07c.33.29.62.85.62 1.72c0 1.24-.01 2.24-.01 2.54c0 .27.18.58.69.48C19.13 20.62 22 16.77 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+							Create Private Repo
+						</button>
 				</div>
 			</div>
 		</div>

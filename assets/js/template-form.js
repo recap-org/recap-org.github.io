@@ -149,6 +149,24 @@
             };
         }
 
+        // Create Public Repo button
+        var publicRepoBtn = document.getElementById('create-public-repo-btn');
+        if (publicRepoBtn) {
+            publicRepoBtn.onclick = function (e) {
+                if (e && e.preventDefault) e.preventDefault();
+                createRepo('public');
+            };
+        }
+
+        // Create Private Repo button
+        var privateRepoBtn = document.getElementById('create-private-repo-btn');
+        if (privateRepoBtn) {
+            privateRepoBtn.onclick = function (e) {
+                if (e && e.preventDefault) e.preventDefault();
+                createRepo('private');
+            };
+        }
+
         // Badge update
         function updateBadge() {
             var latex = getCheckedRadioValue(form, 'latex-packages', 'auto');
@@ -168,6 +186,20 @@
                 .toLowerCase()
                 .replace(/[^a-z0-9]+/g, '-')
                 .replace(/(^-|-$)+/g, '');
+        }
+
+        // Stub for repo creation logic
+        function createRepo(visibility) {
+            if (!backendUrl) {
+                alert('Backend URL is not configured.');
+                return;
+            }
+            if (!currentSelection || !currentSelection.languages) {
+                alert('Please complete the form first.');
+                return;
+            }
+            // TODO: Implement actual repo creation logic here
+            alert('Repo creation (' + visibility + ') is not yet implemented.');
         }
         function generateAndDownload() {
             if (!backendUrl) {

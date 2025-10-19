@@ -15,7 +15,12 @@
     onReady(function () {
         var form = document.getElementById('template-selector');
         if (!form) return;
-        var backendUrl = (form.dataset && form.dataset.backend) ? form.dataset.backend : '';
+        var backendUrl;
+        if (window.location.hostname === 'localhost') {
+            backendUrl = 'http://localhost:8000';
+        } else {
+            backendUrl = 'https://recap-org-backend.onrender.com';
+        }
         var panels = [
             document.getElementById('panel-1'),
             document.getElementById('panel-2'),
@@ -189,7 +194,7 @@
         }
 
         // Stub for repo creation logic
-        function createRepo(visibility) {
+        async function createRepo(visibility) {
             if (!backendUrl) {
                 alert('Backend URL is not configured.');
                 return;
@@ -198,8 +203,69 @@
                 alert('Please complete the form first.');
                 return;
             }
-            // TODO: Implement actual repo creation logic here
-            alert('Repo creation (' + visibility + ') is not yet implemented.');
+            // Check authentication (simple check, adjust as needed)
+            let isAuthenticated = false;
+            try {
+                const authCheck = await fetch(backendUrl.replace(/\/$/, '') + '/auth/github/me', { credentials: 'include' });
+                if (authCheck.status === 401 || authCheck.status === 403) {
+                    window.location.href = backendUrl.replace(/\/$/, '') + '/auth/github/login';
+                    return;
+                }
+                if (!authCheck.ok) {
+                    alert('Authentication check failed: ' + authCheck.status);
+                    return;
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Network or CORS error during authentication check.');
+                return;
+            }
+            var projectName = currentSelection.project_name || 'recap-data-project';
+            var payload = {
+                template_name: 'data',
+                project_name: projectName,
+                r: currentSelection.languages.indexOf('R') !== -1,
+                r_version: '4.5.1',
+                latex: currentSelection.latex,
+                first_name: currentSelection.first_name,
+                last_name: currentSelection.last_name,
+                email: currentSelection.email,
+                institution: currentSelection.institution,
+                description: 'Created with recap template',
+                private: visibility === 'private' ? true : false,
+                org: null,
+                auto_init: false,
+                allow_squash_merge: true,
+                allow_merge_commit: true,
+                allow_rebase_merge: true,
+                delete_branch_on_merge: true
+            };
+            try {
+                const res = await fetch(backendUrl.replace(/\/$/, '') + '/gh-repo-create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) {
+                    const err = await res.text();
+                    throw new Error('Repo creation failed: ' + err);
+                }
+                const data = await res.json();
+                if (data && data.html_url) {
+                    if (window.confirm('Repository created successfully!\n\nOpen the repository in a new tab?')) {
+                        window.open(data.html_url, '_blank');
+                    }
+                } else {
+                    alert('Repository created, but no URL returned.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Could not create repository.\n\n' + (err && err.message ? err.message : 'Please try again later.'));
+            }
         }
         function generateAndDownload() {
             if (!backendUrl) {

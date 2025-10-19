@@ -62,11 +62,13 @@ The goal of RECAP is to make reproducible workflows and good research practices 
 		</div>
 	</fieldset>
 
-	<div style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-top:.5rem">
-		<button id="get-download-button" type="button">Get download link</button>
+	<div style="display:flex;justify-content: space-between;align-items: center;flex-direction: row; gap:.5rem; margin-top:.5rem">
+	<div style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap">
 		<img alt="R" src="https://img.shields.io/badge/Language-R-276DC3?logo=R&logoColor=white" />
 		<img id="badge-latex" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080?logo=latex&logoColor=white" />
-		<img alt="Dev Container" src="https://img.shields.io/badge/Dev%20Container-ready-0DB7ED?logo=visualstudiocode&logoColor=white" />
+		<img alt="Codespace" src="https://img.shields.io/badge/Dev%20Container-ready-0DB7ED?logo=github&logoColor=white" />
+	</div>
+	<button class="btn btn-primary" id="get-download-button" type="button">Download</button>
 	</div>
 
 	<noscript>

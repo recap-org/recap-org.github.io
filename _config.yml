@@ -11,6 +11,10 @@ aux_links:
 include:
   - downloads
 
+# Exclude raw cookiecutter templates from the site build
+exclude:
+  - cookiecutter
+
 # Keep files in _site when building
 keep_files:
   - downloads

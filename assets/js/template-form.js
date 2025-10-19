@@ -26,33 +26,44 @@
             var usecase = form.querySelector('input[name="usecase"]:checked');
             var latex = getCheckedRadioValue(form, 'latex-packages', 'auto');
 
-            if (result) result.innerHTML = '';
-
+            // Validation
             if (!usecase) {
-                if (result) { result.textContent = 'Please select a use case.'; result.focus(); }
+                alert('Please select a use case.');
                 return false;
             }
             if (languages.indexOf('R') === -1) {
-                if (result) { result.innerHTML = 'Currently, downloads are available for the R template only. Please select R. Python and Stata are coming soon.'; result.focus(); }
+                alert('Currently, downloads are available for the R template only. Please select R. Python and Stata are coming soon.');
                 return false;
             }
 
-            var zipName = 'recap-data-template-latex-' + latex + '.zip';
-            var href = (baseUrl || '') + '/downloads/' + zipName;
-
+            // Hide form, show result
+            form.style.display = 'none';
             if (result) {
-                var wrap = document.createElement('div');
-                // Build content without template literals for broader compatibility
-                wrap.innerHTML = '' +
-                    '<p style="margin: 0 0 .5rem">Your selection is ready:</p>' +
-                    '<ul style="margin: 0 0 1rem">' +
-                    '<li><strong>Languages:</strong> ' + languages.join(', ') + '</li>' +
-                    '<li><strong>Use case:</strong> ' + usecase.value + '</li>' +
-                    '<li><strong>LaTeX:</strong> ' + latex + '</li>' +
-                    '</ul>' +
-                    '<a class="btn btn-primary" href="' + href + '">Download data template (LaTeX: ' + latex + ')</a>';
-                result.appendChild(wrap);
-                result.focus();
+                result.style.display = '';
+                // Fill in recap
+                var recapLang = document.getElementById('recap-languages');
+                var recapUse = document.getElementById('recap-usecase');
+                var recapLatex = document.getElementById('recap-latex');
+                if (recapLang) recapLang.textContent = languages.join(', ');
+                if (recapUse) recapUse.textContent = usecase.value;
+                if (recapLatex) recapLatex.textContent = latex;
+                // Set download link
+                var zipName = 'recap-data-template-latex-' + latex + '.zip';
+                var href = (baseUrl || '') + '/downloads/' + zipName;
+                var downloadBtn = document.getElementById('download-template');
+                if (downloadBtn) {
+                    downloadBtn.href = href;
+                }
+            }
+            // Reset button
+            var resetBtn = document.getElementById('reset-template');
+            if (resetBtn) {
+                resetBtn.onclick = function () {
+                    form.reset();
+                    form.style.display = '';
+                    if (result) result.style.display = 'none';
+                    updateBadge();
+                };
             }
             return false;
         }
@@ -65,7 +76,7 @@
             badge.alt = 'LaTeX ' + latex;
         }
 
-        if (button) button.addEventListener('click', handleSubmit);
+        if (button) form.addEventListener('submit', handleSubmit);
         form.addEventListener('change', updateBadge);
     });
 })();

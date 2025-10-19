@@ -14,6 +14,7 @@ include:
 # Exclude raw cookiecutter templates from the site build
 exclude:
   - cookiecutter
+  - scripts
 
 # Keep files in _site when building
 keep_files:

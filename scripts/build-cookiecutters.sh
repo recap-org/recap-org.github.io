@@ -7,7 +7,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-OUTPUT_DIR="$PROJECT_ROOT/_site/downloads"
+OUTPUT_DIR="$PROJECT_ROOT/downloads"
 COOKIECUTTER_DIR="$PROJECT_ROOT/cookiecutter/data"
 
 echo "Building cookiecutter templates..."

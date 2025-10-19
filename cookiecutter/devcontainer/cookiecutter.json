@@ -1,0 +1,31 @@
+{
+    "r": true,
+    "r_version": [
+        "4.5.1",
+        "4.5.0",
+        "4.4.3",
+        "4.4.2",
+        "4.4.1",
+        "4.4.0",
+        "latest"
+    ],
+    "latex": [
+        "auto",
+        "full",
+        "curated"
+    ],
+    "_project_name": ".devcontainer",
+    "__prompts__": {
+        "r": "Use R?",
+        "r_version": "R version (used only if R is enabled)",
+        "latex": "LaTeX package list"
+    },
+    "_jinja2_env_vars": {
+        "variable_start_string": "<<",
+        "variable_end_string": ">>",
+        "comment_start_string": "<#",
+        "comment_end_string": "#>",
+        "block_start_string": "<@",
+        "block_end_string": "@>"
+    }
+}

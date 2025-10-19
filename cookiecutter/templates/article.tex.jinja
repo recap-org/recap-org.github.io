@@ -1,0 +1,104 @@
+\def\anonymized{0} % uncomment to compile the non-anonymized version of the document
+% \def\anonymized{1} % uncomment to compile the anonymized version of the document
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{
+    amsmath,amsthm,amscd,amsfonts,amssymb, 
+    threeparttable,booktabs,pdflscape,tabularray,
+    graphicx,float,hyperref,
+    lineno,fancyhdr,
+    natbib,
+    setspace,siunitx,
+    xr,appendix,
+    codehigh
+}
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{siunitx}
+\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{axiom}{Axiom}
+\newtheorem{hypothesis}{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% \externaldocument{../appendix/main} % uncomment to tie to an external appendix (see appendix template; use relative paths)
+
+\title{
+    <@ block title @><@ endblock @>
+    % \thanks{Acknowledgements}
+}
+\author{
+    << cookiecutter.first_name >> << cookiecutter.last_name >>
+    \thanks{
+        << cookiecutter.institution >>, {\tt \href{mailto:<< cookiecutter.email >>}{<< cookiecutter.email >>}.}
+    }
+}
+\date{\today}
+
+% ---- Publication ready manuscript has a fancy page header ----
+\if\anonymized0
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{<@ block short_title @><@ endblock @>}
+\rhead{
+    << cookiecutter.last_name >>
+}
+\cfoot{\thepage}
+\setlength{\headheight}{14pt}
+\fi
+
+% ---- Anonymized manuscript specific layout --- 
+\if \anonymized1
+\onehalfspacing % wider line spacing
+\linenumbers % add line numbers
+\fi
+
+\begin{document}
+\sloppy % avoid overfull hboxes
+
+\if\anonymized0
+    \maketitle
+    %TC:ignore
+    % \begin{abstract}
+        
+    % \end{abstract}
+    %TC:endignore
+\fi
+
+<@ block content @>
+\section{Introduction}
+<@ endblock @>
+
+% ---- Bibliography ----
+\newpage
+%TC:ignore
+% \bibliographystyle{aer} 
+% \bibliography{library}
+%TC:endignore
+
+\newpage
+
+% ---- Appendix ----
+%TC:ignore
+% \appendix
+% \appendixpage
+% \addappheadtotoc
+% Appendix content
+%TC:endignore
+
+\end{document}

@@ -1,0 +1,26 @@
+<@ extends 'article.tex.jinja' @>
+<@ block title @>The Theory of Everything: a Short Primer<@ endblock @>
+<@ block short_title @>Theory of Everything<@ endblock @>
+<@ block content @>
+\begin{table}[H]
+  \centering
+  \input{./assets/tables/table.tex}
+  \caption{A table generated with R}
+  \label{tab:r_table}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{./assets/figures/figure.pdf}
+  \caption{A figure generated with R}
+  \label{fig:r_figure}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./assets/static/dk.jpg}
+  \caption{A static figure. Photo by \href{https://unsplash.com/@ninjason?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Jason Leung} on \href{https://unsplash.com/photos/donkey-kong-arcade-game-screen-with-1981-date-c5tiCWrZADc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Unsplash}
+  }
+  \label{fig:nice_figure}
+\end{figure}
+<@ endblock @>

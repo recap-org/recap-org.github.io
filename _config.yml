@@ -6,3 +6,16 @@ url: https://recap-org.github.io
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
+
+# Include downloads directory in the build
+include:
+  - downloads
+
+# Exclude raw cookiecutter templates from the site build
+exclude:
+  - cookiecutter
+  - scripts
+
+# Keep files in _site when building
+keep_files:
+  - downloads

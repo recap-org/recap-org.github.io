@@ -203,23 +203,6 @@
                 alert('Please complete the form first.');
                 return;
             }
-            // Check authentication (simple check, adjust as needed)
-            let isAuthenticated = false;
-            try {
-                const authCheck = await fetch(backendUrl.replace(/\/$/, '') + '/auth/github/me', { credentials: 'include' });
-                if (authCheck.status === 401 || authCheck.status === 403) {
-                    window.location.href = backendUrl.replace(/\/$/, '') + '/auth/github/login';
-                    return;
-                }
-                if (!authCheck.ok) {
-                    alert('Authentication check failed: ' + authCheck.status);
-                    return;
-                }
-            } catch (e) {
-                console.error(e);
-                alert('Network or CORS error during authentication check.');
-                return;
-            }
             var projectName = currentSelection.project_name || 'recap-data-project';
             var payload = {
                 template_name: 'data',
@@ -250,6 +233,11 @@
                     credentials: 'include',
                     body: JSON.stringify(payload)
                 });
+                if (res.status === 401 || res.status === 403) {
+                    // Not authenticated, redirect to login
+                    window.location.href = backendUrl.replace(/\/$/, '') + '/auth/github/login';
+                    return;
+                }
                 if (!res.ok) {
                     const err = await res.text();
                     throw new Error('Repo creation failed: ' + err);

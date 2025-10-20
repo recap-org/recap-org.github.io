@@ -1,0 +1,77 @@
+/* Generic option layout for checkboxes/radios */
+.option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option-row input[type="checkbox"],
+.option-row input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 12px;
+}
+
+/* Label: main container for text and metadata */
+.option-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Optional logo (for languages etc.) */
+.option-logo {
+    width: 30px;
+    height: 30px;
+}
+
+/* Left-side text */
+.option-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    flex: 1;
+}
+
+.option-name {
+    font-weight: bold;
+}
+
+.option-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* Right-side metadata column */
+.option-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    min-width: 140px;
+}
+
+.meta-title {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 2px;
+}
+
+.meta-icons {
+    display: flex;
+    gap: 6px;
+}
+
+.meta-icon {
+    font-size: 1.1em;
+    color: #333;
+    opacity: 0.9;
+}
+
+.meta-icon.disabled {
+    color: tomato;
+}

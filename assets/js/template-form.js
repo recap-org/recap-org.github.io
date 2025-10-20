@@ -105,7 +105,6 @@
             var backBtn = document.getElementById('back-button');
             var nextBtn = document.getElementById('next-button');
             if (backBtn) backBtn.style.visibility = currentPanel === 0 ? 'hidden' : 'visible';
-            if (nextBtn) nextBtn.textContent = (currentPanel === totalPanels - 1) ? 'Finish' : 'Next';
             if (nextBtn) nextBtn.style.visibility = (currentPanel === totalPanels - 1) ? 'hidden' : 'visible';
         }
 

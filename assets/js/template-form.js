@@ -1,4 +1,3 @@
-
 // Multi-panel template form logic
 (function () {
     function qsa(root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
@@ -35,11 +34,17 @@
         }
 
         function resetForm() {
+            // Reset all form fields to their default values
             form.reset();
-            showPanel(0);
+            // Clear any cached selection state
+            currentSelection = {};
+            // Return to the first panel and ensure the navigation is correctly positioned and updated
+            goToPanel(0);
+            // Clear recap fields
             ['recap-languages', 'recap-usecase', 'recap-latex', 'recap-project-name', 'recap-first-name', 'recap-last-name', 'recap-email', 'recap-institution', 'recap-website'].forEach(function (id) {
                 var el = document.getElementById(id); if (el) el.textContent = '';
             });
+            // Refresh badges to default state
             updateBadge();
         }
 
@@ -142,34 +147,109 @@
             };
         }
 
-        // Remove all reset button logic (no reset buttons)
+        // Actions container management: swap action buttons for a done message + reset button
+        var actionsContainer = null;
+        var originalActionsMarkup = null;
+        var originalActionsStyle = null;
 
-        // Download button
-        var downloadBtn = document.getElementById('download-template');
-        if (downloadBtn) {
-            downloadBtn.onclick = function (e) {
-                if (e && e.preventDefault) e.preventDefault();
-                generateAndDownload();
+        // Buttons (will be (re)bound via bindActionButtons)
+        var downloadBtn = null;
+        var publicRepoBtn = null;
+        var privateRepoBtn = null;
+
+        function cacheActionsContainer() {
+            // Try to find the container using any existing button
+            var dl = document.getElementById('download-template');
+            var pub = document.getElementById('create-public-repo-btn');
+            var priv = document.getElementById('create-private-repo-btn');
+            var anyBtn = dl || pub || priv;
+            if (anyBtn) {
+                actionsContainer = anyBtn.parentElement;
+                if (actionsContainer && originalActionsMarkup == null) {
+                    originalActionsMarkup = actionsContainer.innerHTML;
+                    originalActionsStyle = actionsContainer.getAttribute('style') || '';
+                }
+            }
+        }
+
+        function handleButtonClick(button, message) {
+            // Disable all buttons and show progress on the clicked one
+            if (downloadBtn) downloadBtn.disabled = true;
+            if (publicRepoBtn) publicRepoBtn.disabled = true;
+            if (privateRepoBtn) privateRepoBtn.disabled = true;
+            if (button) button.textContent = message;
+        }
+
+        function replaceActionsWithDone(messageNode, onReset) {
+            cacheActionsContainer();
+            if (!actionsContainer) return;
+            // Set a layout that spreads message (left) and reset (right)
+            actionsContainer.setAttribute('style', 'display:flex; justify-content:space-between; align-items:center; gap:.5em; margin-bottom: 1em;');
+            // Clear and append new content
+            actionsContainer.innerHTML = '';
+            var left = document.createElement('div');
+            left.appendChild(messageNode);
+            var right = document.createElement('div');
+            var resetBtn = document.createElement('button');
+            resetBtn.className = 'btn btn-secondary';
+            resetBtn.id = 'reset-actions-btn';
+            resetBtn.type = 'button';
+            resetBtn.textContent = 'Reset';
+            right.appendChild(resetBtn);
+            actionsContainer.appendChild(left);
+            actionsContainer.appendChild(right);
+            resetBtn.onclick = function () {
+                // Fully reset UI and form state
+                restoreActionButtons();
+                resetForm();
+                if (typeof onReset === 'function') onReset();
             };
         }
 
-        // Create Public Repo button
-        var publicRepoBtn = document.getElementById('create-public-repo-btn');
-        if (publicRepoBtn) {
-            publicRepoBtn.onclick = function (e) {
-                if (e && e.preventDefault) e.preventDefault();
-                createRepo('public');
-            };
+        function restoreActionButtons() {
+            if (!actionsContainer || originalActionsMarkup == null) return;
+            // Restore original markup and style
+            actionsContainer.innerHTML = originalActionsMarkup;
+            if (originalActionsStyle !== null) {
+                actionsContainer.setAttribute('style', originalActionsStyle);
+            } else {
+                actionsContainer.removeAttribute('style');
+            }
+            // Re-bind button handlers on restored elements
+            bindActionButtons();
         }
 
-        // Create Private Repo button
-        var privateRepoBtn = document.getElementById('create-private-repo-btn');
-        if (privateRepoBtn) {
-            privateRepoBtn.onclick = function (e) {
-                if (e && e.preventDefault) e.preventDefault();
-                createRepo('private');
-            };
+        function bindActionButtons() {
+            // Query buttons again (they may have been re-rendered)
+            downloadBtn = document.getElementById('download-template');
+            publicRepoBtn = document.getElementById('create-public-repo-btn');
+            privateRepoBtn = document.getElementById('create-private-repo-btn');
+
+            if (downloadBtn) {
+                downloadBtn.onclick = function (e) {
+                    if (e && e.preventDefault) e.preventDefault();
+                    handleButtonClick(downloadBtn, 'Downloading...');
+                    generateAndDownload();
+                };
+            }
+            if (publicRepoBtn) {
+                publicRepoBtn.onclick = function (e) {
+                    if (e && e.preventDefault) e.preventDefault();
+                    handleButtonClick(publicRepoBtn, 'Creating Public Repo...');
+                    createRepo('public');
+                };
+            }
+            if (privateRepoBtn) {
+                privateRepoBtn.onclick = function (e) {
+                    if (e && e.preventDefault) e.preventDefault();
+                    handleButtonClick(privateRepoBtn, 'Creating Private Repo...');
+                    createRepo('private');
+                };
+            }
+            cacheActionsContainer();
         }
+        // Initial bind
+        bindActionButtons();
 
         // Badge update
         function updateBadge() {
@@ -275,15 +355,24 @@
                 }
                 const data = await res.json();
                 if (data && data.html_url) {
-                    if (window.confirm('Repository created successfully!\n\nOpen the repository in a new tab?')) {
-                        window.open(data.html_url, '_blank');
-                    }
+                    // Show done message with repository URL and a reset button
+                    var msg = document.createElement('span');
+                    var link = document.createElement('a');
+                    link.href = data.html_url;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.textContent = data.html_url;
+                    msg.textContent = 'Done! Your repo is available at ';
+                    msg.appendChild(link);
+                    replaceActionsWithDone(msg);
                 } else {
                     alert('Repository created, but no URL returned.');
+                    restoreActionButtons();
                 }
             } catch (err) {
                 console.error(err);
                 alert('Could not create repository.\n\n' + (err && err.message ? err.message : 'Please try again later.'));
+                restoreActionButtons();
             }
         }
         function generateAndDownload() {
@@ -327,9 +416,14 @@
                 a.click();
                 a.remove();
                 window.URL.revokeObjectURL(url);
+                // Show done message and reset button
+                var msg = document.createElement('span');
+                msg.textContent = 'Done! Open up the .zip file and get started.';
+                replaceActionsWithDone(msg);
             }).catch(function (err) {
                 console.error(err);
                 alert('Could not generate template. Please try again later.');
+                restoreActionButtons();
             });
         }
 

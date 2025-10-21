@@ -16,7 +16,7 @@
         var form = document.getElementById('template-selector');
         if (!form) return;
         var backendUrl;
-        if (window.location.hostname === 'localhost') {
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
             backendUrl = 'http://localhost:8000';
         } else {
             backendUrl = 'https://recap-org-backend.onrender.com';

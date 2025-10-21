@@ -181,6 +181,38 @@
                 img.src = src;
                 img.alt = 'LaTeX ' + latex;
             });
+
+            // Update macOS badge based on latex selection
+            var macosBadges = qsa(document, '#badge-macos, #badge-macos-2, #badge-macos-3');
+            macosBadges.forEach(function (macosBadge) {
+                console.log('setting macos badge for latex:', latex, macosBadge);
+                if (latex === 'auto') {
+                    // macOS incompatible with auto
+                    macosBadge.src = 'https://img.shields.io/badge/macOS-✗-red?logo=apple&logoColor=white';
+                    macosBadge.alt = 'macOS incompatible';
+                } else {
+                    // macOS compatible with full or curated
+                    macosBadge.src = 'https://img.shields.io/badge/macOS-✔-0DB7ED?logo=apple&logoColor=white';
+                    macosBadge.alt = 'macOS compatible';
+                }
+                console.log('set macos badge for latex:', latex, macosBadge);
+            })
+
+            // Update GitHub Codespaces badge based on latex selection
+            var githubBadges = qsa(document, '#badge-github, #badge-github-2, #badge-github-3');
+            githubBadges.forEach(function (githubBadge) {
+                console.log('setting macos badge for latex:', latex, githubBadge);
+                if (latex === 'full') {
+                    // GitHub Codespaces incompatible with full
+                    githubBadge.src = 'https://img.shields.io/badge/Codespaces-✗-red?logo=github&logoColor=white';
+                    githubBadge.alt = 'GitHub Codespaces incompatible';
+                } else {
+                    // GitHub Codespaces compatible with auto or curated
+                    githubBadge.src = 'https://img.shields.io/badge/Codespaces-✔-0DB7ED?logo=github&logoColor=white';
+                    githubBadge.alt = 'GitHub Codespaces compatible';
+                }
+                console.log('set macos badge for latex:', latex, githubBadge);
+            })
         }
         form.addEventListener('change', updateBadge);
 

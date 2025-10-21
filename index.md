@@ -33,9 +33,12 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
 	<p class="form-instructions" style="margin:0;">Select at least one statistical language and one use case.</p>
 </div>
 <div id="form-badges" style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1.5rem;">
-	<img alt="R" src="https://img.shields.io/badge/Language-R-276DC3?logo=R&logoColor=white" />
-	<img id="badge-latex" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080?logo=latex&logoColor=white" />
-	<img alt="Codespace" src="https://img.shields.io/badge/Dev%20Container-ready-0DB7ED?logo=github&logoColor=white" />
+	<img alt="R version" src="https://img.shields.io/badge/4.5.1-276DC3?logo=R&logoColor=white" />
+	<img id="badge-latex" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080" />
+	<img id="badge-github" alt="Codespace compatible" src="https://img.shields.io/badge/Codespaces-&#10004;-0DB7ED?logo=github&logoColor=white" />
+  <img id="badge-macos" alt="macOS incompatible" src="https://img.shields.io/badge/macOS-&#10007;-red?logo=apple&logoColor=white" />
+  <img id="badge-windows" alt="Windows compatible" src="https://img.shields.io/badge/Windows-&#10004;-0DB7ED?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNOTYgMTU3LjdMMjc5LjYgMTMyLjRMMjc5LjYgMzA5LjhMOTYgMzA5LjhMOTYgMTU3Ljd6TTk2IDQ4Mi4zTDI3OS42IDUwNy42TDI3OS42IDMzMi40TDk2IDMzMi40TDk2IDQ4Mi4zek0yOTkuOCA1MTAuM0w1NDQgNTQ0TDU0NCAzMzIuNEwyOTkuOCAzMzIuNEwyOTkuOCA1MTAuM3pNMjk5LjggMTI5LjdMMjk5LjggMzA5LjhMNTQ0IDMwOS44TDU0NCA5NkwyOTkuOCAxMjkuN3oiLz48L3N2Zz4=&logoColor=white" />
+  <img id="badge-linux" alt="Linux compatible" src="https://img.shields.io/badge/Linux-&#10004;-0DB7ED?logo=linux&logoColor=white" />
 </div>
 
 <!-- Statistical languages -->
@@ -90,7 +93,7 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
       <div class="option-meta">
         <span class="meta-title">Compatibility</span>
         <div class="meta-icons">
-          <i class="fa-solid fa-cloud meta-icon" title="Github Codespaces"></i>
+          <i class="fa-brands fa-github meta-icon" title="Github Codespaces"></i>
           <i class="fa-brands fa-apple meta-icon disabled" title="Incompatible with macOS"></i>
           <i class="fa-brands fa-windows meta-icon" title="Windows"></i>
           <i class="fa-brands fa-linux meta-icon" title="Linux"></i>
@@ -109,7 +112,7 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
       <div class="option-meta">
         <span class="meta-title">Compatibility</span>
         <div class="meta-icons">
-          <i class="fa-solid fa-cloud meta-icon disabled" title="Incompatible with Github Codespaces"></i>
+          <i class="fa-brands fa-github meta-icon disabled" title="Incompatible with Github Codespaces"></i>
           <i class="fa-brands fa-apple meta-icon" title="macOS"></i>
           <i class="fa-brands fa-windows meta-icon" title="Windows"></i>
           <i class="fa-brands fa-linux meta-icon" title="Linux"></i>
@@ -130,7 +133,7 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
       <div class="option-meta">
         <span class="meta-title">Compatibility</span>
         <div class="meta-icons">
-          <i class="fa-solid fa-cloud meta-icon" title="Github Codespaces"></i>
+          <i class="fa-brands fa-github meta-icon" title="Github Codespaces"></i>
           <i class="fa-brands fa-apple meta-icon" title="macOS"></i>
           <i class="fa-brands fa-windows meta-icon" title="Windows"></i>
           <i class="fa-brands fa-linux meta-icon" title="Linux"></i>
@@ -182,9 +185,12 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
 		<p class="form-instructions" style="margin:0;">You can customise a few things.</p>
 	</div>
 	<div id="form-badges" style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1.5rem;">
-		<img alt="R" src="https://img.shields.io/badge/Language-R-276DC3?logo=R&logoColor=white" />
+		<img alt="R version" src="https://img.shields.io/badge/4.5.1-276DC3?logo=R&logoColor=white" />
 		<img id="badge-latex-2" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080?logo=latex&logoColor=white" />
-		<img alt="Codespace" src="https://img.shields.io/badge/Dev%20Container-ready-0DB7ED?logo=github&logoColor=white" />
+		<img id="badge-github-2" alt="Codespace compatible" src="https://img.shields.io/badge/Codespaces-&#10004;-0DB7ED?logo=github&logoColor=white" />
+    <img id="badge-macos-2" alt="macOS incompatible" src="https://img.shields.io/badge/macOS-&#10007;-red?logo=apple&logoColor=white" />
+    <img id="badge-windows" alt="Windows compatible" src="https://img.shields.io/badge/Windows-&#10004;-0DB7ED?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNOTYgMTU3LjdMMjc5LjYgMTMyLjRMMjc5LjYgMzA5LjhMOTYgMzA5LjhMOTYgMTU3Ljd6TTk2IDQ4Mi4zTDI3OS42IDUwNy42TDI3OS42IDMzMi40TDk2IDMzMi40TDk2IDQ4Mi4zek0yOTkuOCA1MTAuM0w1NDQgNTQ0TDU0NCAzMzIuNEwyOTkuOCAzMzIuNEwyOTkuOCA1MTAuM3pNMjk5LjggMTI5LjdMMjk5LjggMzA5LjhMNTQ0IDMwOS44TDU0NCA5NkwyOTkuOCAxMjkuN3oiLz48L3N2Zz4=&logoColor=white" />
+    <img id="badge-linux" alt="Linux compatible" src="https://img.shields.io/badge/Linux-&#10004;-0DB7ED?logo=linux&logoColor=white" />
 	</div>
 	<fieldset>
 		<legend>User details</legend>
@@ -223,9 +229,12 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
 		<p class="form-instructions" style="margin:0;">Download or use on GitHub</p>
 	</div>
 	<div id="form-badges" style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1.5rem;">
-		<img alt="R" src="https://img.shields.io/badge/Language-R-276DC3?logo=R&logoColor=white" />
+		<img alt="R version" src="https://img.shields.io/badge/4.5.1-276DC3?logo=R&logoColor=white" />
 		<img id="badge-latex-3" alt="LaTeX" src="https://img.shields.io/badge/LaTeX-auto-008080?logo=latex&logoColor=white" />
-		<img alt="Codespace" src="https://img.shields.io/badge/Dev%20Container-ready-0DB7ED?logo=github&logoColor=white" />
+		<img id="badge-github-3" alt="Codespace compatible" src="https://img.shields.io/badge/Codespaces-&#10004;-0DB7ED?logo=github&logoColor=white" />
+    <img id="badge-macos-3" alt="macOS incompatible" src="https://img.shields.io/badge/macOS-&#10007;-red?logo=apple&logoColor=white" />
+    <img id="badge-windows" alt="Windows compatible" src="https://img.shields.io/badge/Windows-&#10004;-0DB7ED?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNOTYgMTU3LjdMMjc5LjYgMTMyLjRMMjc5LjYgMzA5LjhMOTYgMzA5LjhMOTYgMTU3Ljd6TTk2IDQ4Mi4zTDI3OS42IDUwNy42TDI3OS42IDMzMi40TDk2IDMzMi40TDk2IDQ4Mi4zek0yOTkuOCA1MTAuM0w1NDQgNTQ0TDU0NCAzMzIuNEwyOTkuOCAzMzIuNEwyOTkuOCA1MTAuM3pNMjk5LjggMTI5LjdMMjk5LjggMzA5LjhMNTQ0IDMwOS44TDU0NCA5NkwyOTkuOCAxMjkuN3oiLz48L3N2Zz4=&logoColor=white" />
+    <img id="badge-linux" alt="Linux compatible" src="https://img.shields.io/badge/Linux-&#10004;-0DB7ED?logo=linux&logoColor=white" />
 	</div>
 	<div id="template-result" tabindex="-1" aria-live="polite" style="margin-top:1rem;">
 		<div id="template-recap">

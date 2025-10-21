@@ -151,7 +151,7 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
     <label for="use-research" class="option-label">
       <div class="option-text">
         <span class="option-name">Research paper</span>
-        <span class="option-details">Generates a complete project setup for academic articles.</span>
+        <span class="option-details">A complete project setup for academic articles.</span>
       </div>
     </label>
   </div>
@@ -214,10 +214,6 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
 			<label for="user-institution">Institution</label>
 			<input type="text" id="user-institution" name="user-institution" autocomplete="organization" value="Aix Marseille School of Economics" placeholder="Aix Marseille School of Economics">
 		</div>
-		<div>
-			<label for="user-website">Website</label>
-			<input type="url" id="user-website" name="user-website" autocomplete="url" required value="https://morgan-doe.net" placeholder="https://morgan-doe.net">
-		</div>
 	</fieldset>
 
 </section>
@@ -248,20 +244,19 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
 				<li><strong>Last Name:</strong> <span id="recap-last-name"></span></li>
 				<li><strong>Email:</strong> <span id="recap-email"></span></li>
 				<li><strong>Institution:</strong> <span id="recap-institution"></span></li>
-				<li><strong>Website:</strong> <span id="recap-website"></span></li>
 			</ul>
-			<!-- Action buttons -->
-			<div style="display: flex; gap: .5em; margin-bottom: 1em;">
-					<a class="btn btn-secondary" id="download-template" href="#">
-						<i class="fa-solid fa-download"></i> Download
-					</a>
-					<button id="create-public-repo-btn" class="btn btn-secondary">
-						<i class="fa-brands fa-github"></i> Create Public Repo
-					</button>
-					<button id="create-private-repo-btn" class="btn btn-primary">
-						<i class="fa-brands fa-github"></i> Create Private Repo
-					</button>
-			</div>
+		<!-- Action buttons -->
+		<div style="display: flex; gap: .5em; margin-bottom: 1em;">
+				<button class="btn btn-secondary" id="download-template" type="button">
+					<i class="fa-solid fa-download"></i> Download
+				</button>
+				<button id="create-public-repo-btn" class="btn btn-secondary">
+					<i class="fa-brands fa-github"></i> Create Public Repo
+				</button>
+				<button id="create-private-repo-btn" class="btn btn-primary">
+					<i class="fa-brands fa-github"></i> Create Private Repo
+				</button>
+		</div>
 		</div>
 	</div>
 </section>

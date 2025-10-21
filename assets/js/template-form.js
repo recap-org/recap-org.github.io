@@ -41,7 +41,7 @@
             // Return to the first panel and ensure the navigation is correctly positioned and updated
             goToPanel(0);
             // Clear recap fields
-            ['recap-languages', 'recap-usecase', 'recap-latex', 'recap-project-name', 'recap-first-name', 'recap-last-name', 'recap-email', 'recap-institution', 'recap-website'].forEach(function (id) {
+            ['recap-languages', 'recap-usecase', 'recap-latex', 'recap-project-name', 'recap-first-name', 'recap-last-name', 'recap-email', 'recap-institution'].forEach(function (id) {
                 var el = document.getElementById(id); if (el) el.textContent = '';
             });
             // Refresh badges to default state
@@ -76,7 +76,6 @@
                 var lastName = form.querySelector('#user-last-name').value.trim();
                 var email = form.querySelector('#user-email').value.trim();
                 var institution = form.querySelector('#user-institution').value.trim();
-                var website = form.querySelector('#user-website').value.trim();
                 if (!projectName) {
                     alert('Please enter a project name.');
                     return false;
@@ -90,7 +89,6 @@
                 currentSelection.last_name = lastName;
                 currentSelection.email = email;
                 currentSelection.institution = institution;
-                currentSelection.website = website;
                 // Fill recap fields
                 document.getElementById('recap-languages').textContent = currentSelection.languages.join(', ');
                 document.getElementById('recap-usecase').textContent = currentSelection.usecase;
@@ -100,7 +98,6 @@
                 document.getElementById('recap-last-name').textContent = lastName;
                 document.getElementById('recap-email').textContent = email;
                 document.getElementById('recap-institution').textContent = institution;
-                document.getElementById('recap-website').textContent = website;
                 return true;
             }
             return true;
@@ -194,7 +191,7 @@
             resetBtn.className = 'btn btn-secondary';
             resetBtn.id = 'reset-actions-btn';
             resetBtn.type = 'button';
-            resetBtn.textContent = 'Reset';
+            resetBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Start Over';
             right.appendChild(resetBtn);
             actionsContainer.appendChild(left);
             actionsContainer.appendChild(right);

@@ -299,17 +299,74 @@
 
         // Stub for repo creation logic
         async function createRepo(visibility) {
-            // Show "Coming soon" message with link to demo template
-            var msg = document.createElement('span');
-            var link = document.createElement('a');
-            link.href = 'https://github.com/recap-org/demo-template';
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = 'demo template';
-            msg.textContent = 'Coming soon. Check out our ';
-            msg.appendChild(link);
-            msg.appendChild(document.createTextNode(' instead.'));
-            replaceActionsWithDone(msg);
+            if (!backendUrl) {
+                alert('Backend URL is not configured.');
+                return;
+            }
+            if (!currentSelection || !currentSelection.languages) {
+                alert('Please complete the form first.');
+                return;
+            }
+            var projectName = currentSelection.project_name || 'recap-data-project';
+            var payload = {
+                template_name: 'data',
+                project_name: projectName,
+                r: currentSelection.languages.indexOf('R') !== -1,
+                r_version: '4.5.1',
+                latex: currentSelection.latex,
+                first_name: currentSelection.first_name,
+                last_name: currentSelection.last_name,
+                email: currentSelection.email,
+                institution: currentSelection.institution,
+                description: 'Created with recap template',
+                private: visibility === 'private' ? true : false,
+                org: null,
+                auto_init: false,
+                allow_squash_merge: true,
+                allow_merge_commit: true,
+                allow_rebase_merge: true,
+                delete_branch_on_merge: true
+            };
+            try {
+                const res = await fetch(backendUrl.replace(/\/$/, '') + '/gh-repo-create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(payload)
+                });
+                if (res.status === 401 || res.status === 403) {
+                    // Not authenticated, redirect to login
+                    window.location.href = backendUrl.replace(/\/$/, '') + '/auth/github/login';
+                    return;
+                }
+                if (!res.ok) {
+                    const err = await res.text();
+                    throw new Error('Repo creation failed: ' + err);
+                }
+                const data = await res.json();
+                if (data && data.html_url) {
+                    // Show done message with repository URL and a reset button
+                    var msg = document.createElement('span');
+                    var link = document.createElement('a');
+                    link.href = data.html_url;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.textContent = data.html_url;
+                    msg.textContent = 'Done! Your repo is available at ';
+                    msg.appendChild(link);
+                    replaceActionsWithDone(msg);
+                } else {
+                    alert('Repository created, but no URL returned.');
+                    restoreActionButtons();
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Could not create repository.\n\n' + (err && err.message ? err.message : 'Please try again later.'));
+                restoreActionButtons();
+            }
         }
         function generateAndDownload() {
             if (!backendUrl) {

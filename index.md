@@ -41,6 +41,40 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
   <img id="badge-linux" alt="Linux compatible" src="https://img.shields.io/badge/Linux-&#10004;-0DB7ED?logo=linux&logoColor=white" />
 </div>
 
+<fieldset>
+  <legend>Use case</legend>
+
+  <div class="option-row">
+    <input type="radio" id="use-research" name="usecase" value="research" checked>
+    <label for="use-research" class="option-label">
+      <div class="option-text">
+        <span class="option-name">Research paper</span>
+        <span class="option-details">A complete project setup for academic articles.</span>
+      </div>
+    </label>
+  </div>
+
+  <!-- <div class="option-row">
+    <input type="radio" id="use-course" name="usecase" value="course" disabled>
+    <label for="use-course" class="option-label" title="Coming soon">
+      <div class="option-text">
+        <span class="option-name">Course</span>
+        <span class="option-details">Template for course materials and lecture organization (coming soon).</span>
+      </div>
+    </label>
+  </div> -->
+
+  <div class="option-row">
+    <input type="radio" id="use-activity" name="usecase" value="activity" disabled>
+    <label for="use-activity" class="option-label" title="Coming soon">
+      <div class="option-text">
+        <span class="option-name">In-class activity</span>
+        <span class="option-details">Interactive classroom exercises with reproducible data environments (coming soon).</span>
+      </div>
+    </label>
+  </div>
+</fieldset>
+
 <!-- Statistical languages -->
 <fieldset>
   <legend>Statistical language(s)</legend>
@@ -138,40 +172,6 @@ Beyond technical reproducibility, RECAP promotes good research practices with [v
           <i class="fa-brands fa-windows meta-icon" title="Windows"></i>
           <i class="fa-brands fa-linux meta-icon" title="Linux"></i>
         </div>
-      </div>
-    </label>
-  </div>
-</fieldset>
-
-<fieldset>
-  <legend>Use case</legend>
-
-  <div class="option-row">
-    <input type="radio" id="use-research" name="usecase" value="research" checked>
-    <label for="use-research" class="option-label">
-      <div class="option-text">
-        <span class="option-name">Research paper</span>
-        <span class="option-details">A complete project setup for academic articles.</span>
-      </div>
-    </label>
-  </div>
-
-  <div class="option-row">
-    <input type="radio" id="use-course" name="usecase" value="course" disabled>
-    <label for="use-course" class="option-label" title="Coming soon">
-      <div class="option-text">
-        <span class="option-name">Course</span>
-        <span class="option-details">Template for course materials and lecture organization (coming soon).</span>
-      </div>
-    </label>
-  </div>
-
-  <div class="option-row">
-    <input type="radio" id="use-activity" name="usecase" value="activity" disabled>
-    <label for="use-activity" class="option-label" title="Coming soon">
-      <div class="option-text">
-        <span class="option-name">In-class activity</span>
-        <span class="option-details">Interactive classroom exercises with reproducible data environments (coming soon).</span>
       </div>
     </label>
   </div>

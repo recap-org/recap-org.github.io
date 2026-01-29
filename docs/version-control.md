@@ -1,9 +1,8 @@
 ---
 title: Version control (git)
 layout: home
-nav_order: 3
+nav_order: 2
 ---
-
 
 # What is Git(Hub)? Why do we need it? 
 
@@ -34,7 +33,10 @@ Here is an example of three commits in a row:
        commit id: "Add internship"
 ```
 
-**When should I commit?** When you feel like you can write a short message about it *and* you know your code works (so you know that you're taking a snapshot of something safe; more on this right below). 
+{: .important-title }
+> When should I commit?
+>
+> When you feel like you can write a short message about it *and* you know your code works (so you know that you're taking a snapshot of something safe; more on this right below). 
 
 ## Reverting
 
@@ -54,7 +56,10 @@ Let's say that today, you updated two sections: your work experience and your ed
 
 Staging allows you to select the changes you will want to commit. It will only commit those files that you staged for committing. You can still modify those files you staged after you've staged them (and before you committed them), but those additional changes won't be saved in the commit. 
 
-**What should I stage?** Everything. It's best to just stage all your changes and commit them, so you don't get confused. Why do I mention this then? Mostly because git will always ask you to stage before you commit. 
+{: .important-title }
+> What should I stage?
+>
+> Everything. It's best to just stage all your changes and commit them, so you don't get confused. Why do I mention this then? Mostly because git will always ask you to stage before you commit. 
 
 ## Branches
 
@@ -87,9 +92,12 @@ Let's say, now, that you decide to add a job to your job section. You can **chec
         commit id: "Third publication"
 ```
 
-**When should I create branches?** When you're working on a substantial, new direction of your project that might break things that work and that you're not sure you want to keep. You create a branch, work on it, and merge it only when you're happy with it. Example, for a project that analyzes data from several countries
+{: .important-title }
+> When should I create branches?
+>
+> When you're working on a substantial, new direction of your project that might break things that work and that you're not sure you want to keep. You create a branch, work on it, and merge it only when you're happy with it. Example, for a project that analyzes data from several countries
 
-```mermaid
+ ```mermaid
     gitGraph
        commit id: "First commit"
        commit id: "Project setup"
@@ -113,7 +121,10 @@ Likewise, git doesn't automatically syncs what's online to your local machine. I
 
 Why bother with pulling, especially if you're the only one working on your project? Because you might alternate between different machines; e.g., your computer and a GitHub Codespace. 
 
-**When should I fetch and pull?** Whenever you switch to a new machine, so you're sure you're always working with the latest version of the code.
+{: .important-title }
+> When should I fetch and pull?
+>
+> Whenever you switch to a new machine, so you're sure you're always working with the latest version of the code.
 
 # Special files
 
@@ -125,26 +136,10 @@ README files are special in GitHub because they act as repo landing pages. For a
 
 A .gitignore file tells Git what to ignore (i.e., never commit). This is especially useful if you want to exclude whole folders or a class of files (e.g. based on size or type). 
 
-**What should I ignore?** Everything that can be produced and reproduced identically by your code. So you should only commit to git the raw data used by your project and your code. You can reproduce everything else by just running your code. In practice, this means that, for instance, the rendered pdf of your final report can be safely ignored. RECAP templates have a series of sane defaults, so you shouldn't have to think about this too much. 
-
-# FAQ
-
-**Q: When should I commit (and push) changes?**
-
-**A: Early and often.**
-- It's not quite as important as saving your work regularly, but it's a close second.
-- You should certainly push everything that you want your collaborators to see.
-  
-**Q: Do I need branches if I am working on a solo project?**
-
-**A: You don't *need* them, but they offer big advantages in maintaining a sane workflow.**
-- Experiment without any risk to the main project!
-- If you combine them with pull requests, then you can compress significant additions to your project (which may comprise many small edits) into a single branch.
-
-**Q: What's the difference between cloning and forking a repo?**
-
-**A: Cloning directly ties your local version to the original repo, while forking creates a copy on your GitHub (which you can then clone).**
-- <a href="http://happygitwithr.com/clone.html" target="_blank">Cloning</a> makes it easier to fetch updates (and is often the best choice for new GitHub users), but <a href="http://happygitwithr.com/fork.html" target="_blank">forking</a> has advantages too.
+{: .important-title }
+> What should I ignore?
+>
+> Everything that can be produced and reproduced identically by your code. So you should only commit to git the raw data used by your project and your code. You can reproduce everything else by just running your code. In practice, this means that, for instance, the rendered pdf of your final report can be safely ignored. RECAP templates have a series of sane defaults, so you shouldn't have to think about this too much. 
 
 # How to do this in practice
 
@@ -152,5 +147,7 @@ A .gitignore file tells Git what to ignore (i.e., never commit). This is especia
 
 # What to do when something goes wrong with git 
 
-- Think: "Oh shit, Git!": http://ohshitgit.com/.
-- Burn it down and start again: http://happygitwithr.com/burn.html  
+Check out
+
+- [Oh shit, Git!](http://ohshitgit.com/)
+- [Burn it down and start again](http://happygitwithr.com/burn.html)  

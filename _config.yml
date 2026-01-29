@@ -10,3 +10,8 @@ aux_links:
 mermaid:
   version: "11.12.2"
 
+callouts:
+  important:
+    title: Important
+    color: blue
+

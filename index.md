@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const templateName = selectedTemplate.charAt(0).toUpperCase() + selectedTemplate.slice(1);
       const languageName = selectedLanguage.toUpperCase();
       submitSelection.textContent = templateName + ' • ' + languageName;
-      submitBtn.href = `https://github.com/recap-org/template-${selectedTemplate}-${selectedLanguage}`;
+      submitBtn.href = `https://github.com/recap-org/template-${selectedLanguage}-${selectedTemplate}`;
       submitBtn.style.display = 'inline-block';
     } else {
       submitBtn.style.display = 'none';

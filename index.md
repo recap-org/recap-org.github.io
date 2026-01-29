@@ -69,7 +69,7 @@ Each template provides a complete, [containerized environment](/docs/containers)
     </div>
   </div>
 
-  <a id="submitBtn" class="recap-submit-btn btn btn-primary fs-5" style="display: none;">
+  <a id="submitBtn" class="recap-submit-btn btn btn-primary fs-5" style="display: none;" target="_blank">
     <div class="submit-label">Open your template</div>
     <div class="submit-selection text-secondary"></div>
   </a>

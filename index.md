@@ -68,9 +68,8 @@ Each template provides a complete, [containerized environment](/docs/containers)
   </div>
 
   <div class="button-container" style="display: none;">
-    <a id="submitBtn" class="recap-submit-btn btn btn-primary fs-5" target="_blank">
-      <div class="submit-label">Open your template</div>
-      <div class="submit-selection text-secondary"></div>
+    <a id="submitBtn" class="btn btn-primary fs-5" target="_blank">
+      Open your template
     </a>
     <a id="detailsBtn" class="btn btn-secondary fs-5">
       How to run this template
@@ -199,32 +198,12 @@ Each template provides a complete, [containerized environment](/docs/containers)
   align-items: stretch;
 }
 
-.recap-submit-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#submitBtn {
   text-align: center;
-  text-decoration: none !important;
 }
 
 #detailsBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem !important;
-  font-weight: 600;
-  flex-shrink: 0;
-  /* width: fit-content; */
-}
-
-.submit-label {
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.submit-selection {
-  font-size: 0.85rem;
-  font-weight: normal;
+  text-align: center;
 }
 </style>
 
@@ -234,9 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const templateButtons = document.querySelectorAll('.template-card');
   const languageButtons = document.querySelectorAll('.language-btn:not(:disabled)');
   const submitBtn = document.getElementById('submitBtn');
-  const detailsBtn = document.getElementById('detailsBtn');
   const buttonContainer = document.querySelector('.button-container');
-  const submitSelection = document.querySelector('.submit-selection');
   
   let selectedTemplate = null;
   let selectedLanguage = null;
@@ -244,9 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function updateForm() {
     if (selectedTemplate && selectedLanguage) {
-      const templateName = selectedTemplate.charAt(0).toUpperCase() + selectedTemplate.slice(1);
-      const languageName = selectedLanguage.toUpperCase();
-      submitSelection.textContent = templateName + ' • ' + languageName;
       submitBtn.href = `https://github.com/recap-org/template-${selectedLanguage}-${selectedTemplate}`;
       buttonContainer.style.display = 'flex';
       if(!validSelection) {

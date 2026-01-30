@@ -10,11 +10,11 @@ nav_order: 1
 RECAP helps social scientists start projects with fully reproducible, ready-to-use research environments.
 {: .fs-6 .fw-300 }
 
-RECAP (Reproducible Environments for Collaborative Academic Projects) generates starter templates for common academic use cases — from assignments to full-blown research papers.
+RECAP (Reproducible Environments for Collaborative Academic Projects) generates starter templates for common academic use cases — from short assignments to full-blown research projects.
 
-Our templates promote good research practices that enable effective workflows and are key to reproducibility. These practices include [version control](/docs/version-control), built-in [dependency management](/docs/dependency-management), and automated [build pipelines](/docs/build). 
+RECAP templates promote good research practices that enable effective workflows and support reproducibility. These include [version control](/docs/version-control), automated [build pipelines](/docs/build), and, for larger projects, explicit [dependency management](/docs/dependency-management). All of these practices are built into the templates, but none are mandatory: you can start simple and adopt additional structure as your project grows.
 
-Each template provides a complete, [containerized environment](/docs/containers), ensuring that the analysis can be replicated, that all collaborators share the exact same software, and that templates can not only be used locally with popular IDEs such as VS Code or RStudio, but also opened directly in the cloud (e.g., GitHub Codespaces).
+Each template provides a complete, [containerized environment](/docs/containers). This ensures that analyses can be replicated, that collaborators share the exact same software setup, and that projects can be run either locally with familiar IDEs such as VS Code or RStudio, or directly in the cloud (for example, using GitHub Codespaces).
 
 # Getting started
 

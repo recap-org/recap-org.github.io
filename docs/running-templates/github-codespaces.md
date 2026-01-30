@@ -51,24 +51,24 @@ To work with a RECAP template in GitHub Codespaces, you first create **your own 
 
    GitHub will create a cloud-based workspace and open it for you in **Visual Studio Code**, either in your browser or on your local machine. The environment already contains all the tools needed to run the template.
 
-3. **Work and save your changes**
+3. **Work on your project**
 
    You can now edit files, run the analysis, and build outputs as described in the template’s instructions.
-
-   To keep a permanent record of your work and share it with others, save your changes back to GitHub using the graphical Git interface in Visual Studio Code. No command-line knowledge is required.
 
 ## Saving your work
 
 When working in Codespaces, your files live inside your Codespace. Your work is preserved as long as the Codespace exists.
 
-To **share your work**, collaborate with others, or keep a permanent record of your changes, you will need to use Git to save them back to GitHub.
+To **keep a permanent record of your work**, collaborate with others, or safely close and reopen the project later, you should save your changes back to GitHub using Git.
 
 You do **not** need to use Git from the command line. Visual Studio Code provides a graphical interface that lets you:
 - see which files you changed,
 - save your changes,
 - and upload them to GitHub.
 
-RECAP is designed so that you can learn these Git concepts gradually, as part of your research workflow.
+Using Git ensures that your work is preserved even if the Codespace is deleted, and allows others to reproduce or build on your analysis.
+
+If you would like to understand what Git is and how to use it, see our primer on **[wersion control with Git](/docs/version-control)**.
 
 ## Things to be aware of
 

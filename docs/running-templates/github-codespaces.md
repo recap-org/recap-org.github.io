@@ -2,7 +2,7 @@
 title: Run in the cloud (GitHub Codespaces)
 parent: How to run a template
 layout: home
-nav_order: 4
+nav_order: 3
 ---
 
 # Run in the cloud (GitHub Codespaces)

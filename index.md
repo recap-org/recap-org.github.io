@@ -16,14 +16,12 @@ Our templates promote good research practices that enable effective workflows an
 
 Each template provides a complete, [containerized environment](/docs/containers), ensuring that the analysis can be replicated, that all collaborators share the exact same software, and that templates can not only be used locally with popular IDEs such as VS Code or RStudio, but also opened directly in the cloud (e.g., GitHub Codespaces).
 
-[Get started](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 }
-
-
 # Getting started
 
 <div id="recap-form" class="recap-form">
   <div class="form-section">
     <h2>Choose your template</h2>
+    <p class="text-muted">Not sure which one to pick? <a href="/docs/templates">Learn how Small, Medium, and Large differ.</a></p>
     <div class="template-buttons" id="templateButtons">
       <button type="button" class="template-card" data-template="small">
         <div class="template-name">Small</div>
@@ -69,30 +67,26 @@ Each template provides a complete, [containerized environment](/docs/containers)
     </div>
   </div>
 
-  <a id="submitBtn" class="recap-submit-btn btn btn-primary fs-5" style="display: none;" target="_blank">
-    <div class="submit-label">Open your template</div>
-    <div class="submit-selection text-secondary"></div>
-  </a>
+  <div class="button-container" style="display: none;">
+    <a id="submitBtn" class="recap-submit-btn btn btn-primary fs-5" target="_blank">
+      <div class="submit-label">Open your template</div>
+      <div class="submit-selection text-secondary"></div>
+    </a>
+    <a id="detailsBtn" class="btn btn-secondary fs-5">
+      How to run this template
+    </a>
+  </div>
 </div>
 
 <style>
 
-#recap-form {
-  max-width: 500px
-}
-
-/* .form-section {
-  margin-bottom: 3rem;
-} */
-
 .form-section h2 {
-  /* font-size: 1.5rem; */
   margin-top: 1.5rem;
-  /* font-weight: 600; */
 }
 
 /* Template buttons styling */
 .template-buttons {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -198,11 +192,29 @@ Each template provides a complete, [containerized environment](/docs/containers)
 }
 
 /* Submit button styling */
-.recap-submit-btn {
-  display: inline-block;
-  text-align: center;
+.button-container {
   margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.recap-submit-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   text-decoration: none !important;
+}
+
+#detailsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem !important;
+  font-weight: 600;
+  flex-shrink: 0;
+  /* width: fit-content; */
 }
 
 .submit-label {
@@ -222,10 +234,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const templateButtons = document.querySelectorAll('.template-card');
   const languageButtons = document.querySelectorAll('.language-btn:not(:disabled)');
   const submitBtn = document.getElementById('submitBtn');
+  const detailsBtn = document.getElementById('detailsBtn');
+  const buttonContainer = document.querySelector('.button-container');
   const submitSelection = document.querySelector('.submit-selection');
   
   let selectedTemplate = null;
   let selectedLanguage = null;
+  let validSelection = false;
   
   function updateForm() {
     if (selectedTemplate && selectedLanguage) {
@@ -233,9 +248,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const languageName = selectedLanguage.toUpperCase();
       submitSelection.textContent = templateName + ' • ' + languageName;
       submitBtn.href = `https://github.com/recap-org/template-${selectedLanguage}-${selectedTemplate}`;
-      submitBtn.style.display = 'inline-block';
+      buttonContainer.style.display = 'flex';
+      if(!validSelection) {
+        submitBtn.scrollIntoView({ behavior: 'smooth' });
+      }
+      validSelection = true;
     } else {
-      submitBtn.style.display = 'none';
+      buttonContainer.style.display = 'none';
     }
   }
   

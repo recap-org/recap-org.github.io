@@ -69,7 +69,7 @@ Each template provides a complete, [containerized environment](/docs/running-tem
 
   <div class="button-container" style="display: none;">
     <a id="submitBtn" class="btn btn-primary fs-5" target="_blank">
-      Open your template
+      Use this template
     </a>
     <a id="detailsBtn" href="/docs/choosing-templates" class="btn btn-secondary fs-5">
       How to run this template

@@ -1,7 +1,7 @@
 ---
 title: Version control (git)
 layout: home
-nav_order: 2
+nav_order: 3
 ---
 
 # What is Git(Hub)? Why do we need it? 

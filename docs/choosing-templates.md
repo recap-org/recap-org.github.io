@@ -1,7 +1,7 @@
 ---
-title: Our templates
+title: Choosing a template
 layout: home
-nav_order: 1
+nav_order: 2
 ---
 
 # Choosing a RECAP template

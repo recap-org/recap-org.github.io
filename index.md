@@ -14,14 +14,14 @@ RECAP (Reproducible Environments for Collaborative Academic Projects) generates 
 
 RECAP templates promote good research practices that enable effective workflows and support reproducibility. These include [version control](/docs/version-control), automated [build pipelines](/docs/build), and, for larger projects, explicit [dependency management](/docs/dependency-management). All of these practices are built into the templates, but none are mandatory: you can start simple and adopt additional structure as your project grows.
 
-Each template provides a complete, [containerized environment](/docs/containers). This ensures that analyses can be replicated, that collaborators share the exact same software setup, and that projects can be run either locally with familiar IDEs such as VS Code or RStudio, or directly in the cloud (for example, using GitHub Codespaces).
+Each template provides a complete, [containerized environment](/docs/running-templates). This ensures that analyses can be replicated, that collaborators share the exact same software setup, and that projects can be run either locally with familiar IDEs such as VS Code or RStudio, or directly in the cloud (for example, using GitHub Codespaces).
 
 # Getting started
 
 <div id="recap-form" class="recap-form">
   <div class="form-section">
     <h2>Choose your template</h2>
-    <p class="text-muted">Not sure which one to pick? <a href="/docs/templates">Learn how Small, Medium, and Large differ.</a></p>
+    <p class="text-muted">Not sure which one to pick? <a href="/docs/choosing-templates">Learn how Small, Medium, and Large differ.</a></p>
     <div class="template-buttons" id="templateButtons">
       <button type="button" class="template-card" data-template="small">
         <div class="template-name">Small</div>
@@ -71,7 +71,7 @@ Each template provides a complete, [containerized environment](/docs/containers)
     <a id="submitBtn" class="btn btn-primary fs-5" target="_blank">
       Open your template
     </a>
-    <a id="detailsBtn" class="btn btn-secondary fs-5">
+    <a id="detailsBtn" href="/docs/choosing-templates" class="btn btn-secondary fs-5">
       How to run this template
     </a>
   </div>

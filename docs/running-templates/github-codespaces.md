@@ -31,29 +31,27 @@ Choose GitHub Codespaces if:
 
 To work with a RECAP template in GitHub Codespaces, you first create **your own copy** of the template, and then open it in a cloud workspace.
 
+> 🎥 **Prefer watching instead of reading?**  
+> Short walkthrough of the steps below (no audio).
+
 1. **Create your own repository**
 
    On the GitHub repository page, click the **“Use this template”** button.
 
-   ![Use this template button](https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp)
-
    This creates a new repository under your GitHub account, based on the RECAP template.  
    You can choose a name for your project and decide whether the repository should be public or private. All other options can be left at their default values.
-
-   If you want a more detailed explanation of this step, GitHub provides an official guide:  
-   [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
 2. **Open the repository in Codespaces**
 
    Once your repository has been created, click the **“Code”** button, then choose **“Create Codespace on main”**.
-
-   ![Create Codespace on main](https://docs.github.com/assets/cb-49943/mw-1440/images/help/codespaces/who-will-pay.webp)
 
    GitHub will create a cloud-based workspace and open it for you in **Visual Studio Code**, either in your browser or on your local machine. The environment already contains all the tools needed to run the template.
 
 3. **Work on your project**
 
    You can now edit files, run the analysis, and build outputs as described in the template’s instructions.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SzacvU0UFrc?si=HaRUUDd4k-atWzXK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Saving your work
 
@@ -79,3 +77,17 @@ If you would like to understand what Git is and how to use it, see our primer on
   GitHub Codespaces run on shared cloud machines. This is more than sufficient for most assignments and small to medium projects, but may be limiting for very large datasets or computationally intensive analyses.
 
 If you later need more control over resources or want to work entirely on your own machine, you can switch to one of the local options without changing the structure of your project.
+
+## Frequently asked questions
+
+### How do I go back to my Codespace later?
+
+To return to your Codespace, go to your repository on GitHub, click the **“Code”** button, and select **“Open with Codespaces”**. Then choose your existing Codespace from the list.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VChuY5E9DiA?si=Q3OAbRlURZht3N7n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Things are broken - How do I start over?
+
+You can delete your existing Codespace and create a new one from your repository at any time. This will reset the environment to its original state, while preserving your files in the repository.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e527DCd6Pa0?si=gcaR666K8RBLpxUX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

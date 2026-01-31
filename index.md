@@ -10,20 +10,18 @@ nav_order: 1
 RECAP helps social scientists start projects with fully reproducible, ready-to-use research environments.
 {: .fs-6 .fw-300 }
 
-RECAP (Reproducible Environments for Collaborative Academic Projects) generates starter templates for common academic use cases — from assignments to full-blown research papers.
+RECAP (Reproducible Environments for Collaborative Academic Projects) generates starter templates for common academic use cases — from short assignments to full-blown research projects.
 
-Our templates promote good research practices that enable effective workflows and are key to reproducibility. These practices include [version control](/docs/version-control), built-in [dependency management](/docs/dependency-management), and automated [build pipelines](/docs/build). 
+RECAP templates promote good research practices that enable effective workflows and support reproducibility. These include [version control](/docs/version-control), automated [build pipelines](/docs/build), and, for larger projects, explicit [dependency management](/docs/dependency-management). All of these practices are built into the templates, but none are mandatory: you can start simple and adopt additional structure as your project grows.
 
-Each template provides a complete, [containerized environment](/docs/containers), ensuring that the analysis can be replicated, that all collaborators share the exact same software, and that templates can not only be used locally with popular IDEs such as VS Code or RStudio, but also opened directly in the cloud (e.g., GitHub Codespaces).
-
-[Get started](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 }
-
+Each template provides a complete, [containerized environment](/docs/running-templates). This ensures that analyses can be replicated, that collaborators share the exact same software setup, and that projects can be run either locally with familiar IDEs such as VS Code or RStudio, or directly in the cloud (for example, using GitHub Codespaces).
 
 # Getting started
 
 <div id="recap-form" class="recap-form">
   <div class="form-section">
     <h2>Choose your template</h2>
+    <p class="text-muted">Not sure which one to pick? <a href="/docs/choosing-templates">Learn how Small, Medium, and Large differ.</a></p>
     <div class="template-buttons" id="templateButtons">
       <button type="button" class="template-card" data-template="small">
         <div class="template-name">Small</div>
@@ -69,30 +67,25 @@ Each template provides a complete, [containerized environment](/docs/containers)
     </div>
   </div>
 
-  <a id="submitBtn" class="recap-submit-btn btn btn-primary fs-5" style="display: none;" target="_blank">
-    <div class="submit-label">Open your template</div>
-    <div class="submit-selection text-secondary"></div>
-  </a>
+  <div class="button-container" style="display: none;">
+    <a id="submitBtn" class="btn btn-primary fs-5" target="_blank">
+      Use this template
+    </a>
+    <a id="detailsBtn" href="/docs/choosing-templates" class="btn btn-secondary fs-5">
+      How to run this template
+    </a>
+  </div>
 </div>
 
 <style>
 
-#recap-form {
-  max-width: 500px
-}
-
-/* .form-section {
-  margin-bottom: 3rem;
-} */
-
 .form-section h2 {
-  /* font-size: 1.5rem; */
   margin-top: 1.5rem;
-  /* font-weight: 600; */
 }
 
 /* Template buttons styling */
 .template-buttons {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -198,21 +191,19 @@ Each template provides a complete, [containerized environment](/docs/containers)
 }
 
 /* Submit button styling */
-.recap-submit-btn {
-  display: inline-block;
-  text-align: center;
+.button-container {
   margin-top: 2rem;
-  text-decoration: none !important;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
 }
 
-.submit-label {
-  font-weight: 600;
-  font-size: 1rem;
+#submitBtn {
+  text-align: center;
 }
 
-.submit-selection {
-  font-size: 0.85rem;
-  font-weight: normal;
+#detailsBtn {
+  text-align: center;
 }
 </style>
 
@@ -222,20 +213,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const templateButtons = document.querySelectorAll('.template-card');
   const languageButtons = document.querySelectorAll('.language-btn:not(:disabled)');
   const submitBtn = document.getElementById('submitBtn');
-  const submitSelection = document.querySelector('.submit-selection');
+  const buttonContainer = document.querySelector('.button-container');
   
   let selectedTemplate = null;
   let selectedLanguage = null;
+  let validSelection = false;
   
   function updateForm() {
     if (selectedTemplate && selectedLanguage) {
-      const templateName = selectedTemplate.charAt(0).toUpperCase() + selectedTemplate.slice(1);
-      const languageName = selectedLanguage.toUpperCase();
-      submitSelection.textContent = templateName + ' • ' + languageName;
       submitBtn.href = `https://github.com/recap-org/template-${selectedLanguage}-${selectedTemplate}`;
-      submitBtn.style.display = 'inline-block';
+      buttonContainer.style.display = 'flex';
+      if(!validSelection) {
+        submitBtn.scrollIntoView({ behavior: 'smooth' });
+      }
+      validSelection = true;
     } else {
-      submitBtn.style.display = 'none';
+      buttonContainer.style.display = 'none';
     }
   }
   

@@ -19,6 +19,8 @@ To use GitHub Codespaces, you need:
 
 GitHub Education provides access to Codespaces with increased quotas (currently up to **60 hours of compute per month** and **15 GB of storage**), which is sufficient for most teaching and student projects.
 
+---
+
 ## When this option is a good fit
 
 Choose GitHub Codespaces if:
@@ -27,12 +29,14 @@ Choose GitHub Codespaces if:
 - you are following a course or tutorial,
 - you do not want to install any tools locally.
 
+---
+
 ## How it works
 
 To work with a RECAP template in GitHub Codespaces, you first create **your own copy** of the template, and then open it in a cloud workspace.
 
 > 🎥 **Prefer watching instead of reading?**  
-> Short walkthrough of the steps below (no audio).
+> Short walkthrough of these steps below (no audio).
 
 1. **Create your own repository**
 
@@ -53,6 +57,8 @@ To work with a RECAP template in GitHub Codespaces, you first create **your own 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SzacvU0UFrc?si=HaRUUDd4k-atWzXK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+---
+
 ## Saving your work
 
 When working in Codespaces, your files live inside your Codespace. Your work is preserved as long as the Codespace exists.
@@ -68,6 +74,8 @@ Using Git ensures that your work is preserved even if the Codespace is deleted, 
 
 If you would like to understand what Git is and how to use it, see our primer on **[wersion control with Git](/docs/version-control)**.
 
+---
+
 ## Things to be aware of
 
 - **Deleting a Codespace deletes your work**  
@@ -77,6 +85,8 @@ If you would like to understand what Git is and how to use it, see our primer on
   GitHub Codespaces run on shared cloud machines. This is more than sufficient for most assignments and small to medium projects, but may be limiting for very large datasets or computationally intensive analyses.
 
 If you later need more control over resources or want to work entirely on your own machine, you can switch to one of the local options without changing the structure of your project.
+
+---
 
 ## Frequently asked questions
 

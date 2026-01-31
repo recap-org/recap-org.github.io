@@ -1,3 +1,42 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    /* Tab container */
+    .tab-container {
+        margin: 1em 0;
+    }
+
+    /* Tab buttons */
+    .tab-buttons {
+        display: flex;
+        gap: 0.5rem;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .tab-buttons button {
+        background: transparent;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        font-weight: 500;
+        color: #555;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-buttons button.active {
+        border-color: #333;
+        color: #000;
+    }
+
+    /* Tab panels */
+    .tab-panel {
+        display: none;
+        padding-top: 1rem;
+    }
+
+    .tab-panel.active {
+        display: block;
+    }
+</style>

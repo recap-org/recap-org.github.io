@@ -32,7 +32,7 @@ Choose GitHub Codespaces if:
 To work with a RECAP template in GitHub Codespaces, you first create **your own copy** of the template, and then open it in a cloud workspace.
 
 > 🎥 **Prefer watching instead of reading?**  
-> Short walkthrough of the steps below (no audio).
+> Short walkthrough of these steps below (no audio).
 
 1. **Create your own repository**
 

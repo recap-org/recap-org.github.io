@@ -22,6 +22,8 @@ Choose this option if:
 - you are working on a medium or large project,
 - you want an experience close to Codespaces, but running locally.
 
+---
+
 ## How it works
 
 The template is opened inside an **isolated local environment** that contains:
@@ -30,6 +32,8 @@ The template is opened inside an **isolated local environment** that contains:
 - and all other required dependencies.
 
 You work and access the project files as usual, while execution happens inside this isolated environment.
+
+---
 
 ## Getting set up
 
@@ -88,6 +92,8 @@ Installing Docker may take a few minutes and may require restarting your compute
 
 If this setup feels cumbersome, consider using **GitHub Codespaces**, which provides the same environment with no local installation.
 
+---
+
 ## Open the project in Visual Studio Code
 
 RECAP documents and supports this option using **Visual Studio Code**.  
@@ -130,6 +136,8 @@ Visual Studio Code will build the environment and reopen the project inside the 
 Once this is done, you can run the analysis and build outputs as described in the template’s instructions.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xE4Rxre88PY?si=c4o0Za1dEqjpf64y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
 
 ## Frequently asked questions
 

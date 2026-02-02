@@ -183,7 +183,6 @@ You are now set up to work with Git in RECAP.
 
 You can start editing files, running analyses, and saving your work as commits.
 
-If you want a deeper understanding of Git concepts (staging, branches, `.gitignore`) and learn how to use Git effectively inside your editor, see:
 
 ➡️ **[Using Git in practice](./practice)**
 

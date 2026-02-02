@@ -57,19 +57,3 @@ We welcome contributions! Here's how to get involved and where to ask questions:
 - **Questions about a specific RECAP template** (template-r-small, template-r-medium, template-r-large) – Ask in that template's repository
 - **Questions about the devcontainer images** – Ask in the [recap-org/images](https://github.com/recap-org/images) repository
 
-### How to Contribute
-
-1. **Fork and Clone**: Fork this repository and clone it to your local machine or open in a devcontainer.
-
-2. **Create a Branch**: Create a new branch for your changes:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-3. **Make Your Changes**: Edit or create documentation files in the `docs/` directory using Markdown format.
-
-4. **Preview Your Changes**: Use `bundle exec jekyll serve` (or `make serve`) to preview your changes locally at `http://localhost:4000`.
-
-5. **Commit and Push**: Commit your changes with clear messages and push to your fork.
-
-6. **Submit a Pull Request**: Open a pull request against the main repository with a description of your changes.

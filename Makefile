@@ -20,3 +20,7 @@ clean:
 	@rm -rf .sass-cache/
 	@rm -rf .jekyll-cache/
 	@rm -rf .jekyll-metadata
+
+install:
+	@echo "Installing dependencies..."
+	@bundle install

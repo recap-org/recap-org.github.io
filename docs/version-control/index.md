@@ -163,9 +163,6 @@ RStudio will download the project and open it for you.
 
 ## What’s next?
 
-You are now set up to work with Git in RECAP.
+You are now set up to work with Git. You can start editing files, running analyses, and saving your work as commits.
 
-You can start editing files, running analyses, and saving your work as commits.
-
-
-➡️ **[Using Git in practice](./practice)**
+For more guidance on using Git in practice, see ⬇️

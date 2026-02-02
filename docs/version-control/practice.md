@@ -232,27 +232,23 @@ Rather than duplicating instructions here, each option below links to a short wa
 
 The underlying Git concepts are the same across all editors.
 
-<div class="tab-container">
-  <div class="tab-buttons">
-    <button class="active" data-tab="tab-3"><img src="/assets/static/vscode.svg" alt="" style="height: 1em; vertical-align: middle;"> VS Code</button>
-    <button data-tab="tab-4"><img src="/assets/static/positron.svg" alt="" style="height: 1em; vertical-align: middle;"> Positron</button>
-    <button data-tab="tab-5"><img src="/assets/static/rstudio.svg" alt="" style="height: 1em; vertical-align: middle;"> RStudio</button>
-  </div>
+{% tab_group "ide" %}
 
-  <div id="tab-3" class="tab-panel active">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/i_23KUAEtUM?si=DYDsVJPeLMP9o26J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
+## VS Code
 
-  <div id="tab-4" class="tab-panel">
-    Git in Positron works exactly like in VS Code. So you can follow the same steps as in the VS Code video.
-  </div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i_23KUAEtUM?si=DYDsVJPeLMP9o26J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-  <div id="tab-5" class="tab-panel">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/gbOjLlDcGvA?si=uPy6xJWZ8D2WGhLd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## Positron
 
-    Start with this video and watch all the following videos in the playlist for an overview of using Git in RStudio.
-  </div>
-</div>
+Git in Positron works exactly like in VS Code. So you can follow the same steps as in the VS Code video.
+
+## RStudio
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gbOjLlDcGvA?si=uPy6xJWZ8D2WGhLd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Start with this video and watch all the following videos in the playlist for an overview of using Git in RStudio.
+
+{% endtab_group %}
 
 ---
 
@@ -326,7 +322,7 @@ If you ever feel unsure:
 - push when something important works,
 - and remember that most mistakes are reversible.
 
-To see how these ideas translate into concrete actions, watch the **IDE-specific walkthrough videos** in Part II above.
+To see how these ideas translate into concrete actions, watch the **IDE-specific walkthrough videos** above.
 
 Git is there to make research **safer, not harder**.
 
@@ -337,3 +333,4 @@ Reinforce:
 - Concepts first, tools second
 - Conservative workflows scale best
 -->
+

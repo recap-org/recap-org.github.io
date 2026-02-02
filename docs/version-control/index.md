@@ -66,25 +66,22 @@ RECAP is designed so that you can adopt Git gradually, as it becomes useful to y
 Before opening a project in Visual Studio Code, Git needs to know who you are.  
 This information will be attached to the changes you save.
 
-<div class="tab-container">
-  <div class="tab-buttons">
-    <button class="active" data-tab="tab-1"><i class="fa-brands fa-apple"></i> macOS</button>
-    <button data-tab="tab-2"><i class="fa-brands fa-microsoft"></i> Windows</button>
-  </div>
+{% tab_group "os" %}
 
-  <div id="tab-1" class="tab-panel active">
-    <p>Git is included with macOS, but it needs to be enabled.</p>
-    <p>Open the Terminal and type:<br/>
-    <code>xcode-select --install</code></p>
-    <p>A dialog will appear guiding you through the installation.</p>
-  </div>
+## macOS
 
-  <div id="tab-2" class="tab-panel">
-  <p>
-  Download <a href="https://git-scm.com/" target="_blank">Git for Windows</a> and install it using the recommended settings.
-  </p>
-  </div>
-</div>
+Git is included with macOS, but it needs to be enabled.
+
+Open the Terminal and type:  
+`xcode-select --install`
+
+A dialog will appear guiding you through the installation.
+
+## Windows
+
+Download [Git for Windows](https://git-scm.com/) and install it using the recommended settings.
+
+{% endtab_group %}
 
 Once Git is installed, open the Terminal (macOS) or Git Bash / Command Prompt (Windows) and run the following commands, replacing the placeholders with your own name and email:
 
@@ -116,64 +113,51 @@ You will then be taken to your new repository page.
 To work locally, you need a local copy of the project.  
 Git calls this **cloning** the repository.
 
-<div class="tab-container">
-  <div class="tab-buttons">
-    <button class="active" data-tab="tab-3"><img src="/assets/static/vscode.svg" alt="" style="height: 1em; vertical-align: middle;"> VS Code</button>
-    <button data-tab="tab-4"><img src="/assets/static/positron.svg" alt="" style="height: 1em; vertical-align: middle;"> Positron</button>
-    <button data-tab="tab-5"><img src="/assets/static/rstudio.svg" alt="" style="height: 1em; vertical-align: middle;"> RStudio</button>
-  </div>
+{% tab_group "ide" %}
 
-  <div id="tab-3" class="tab-panel active">
-    <ol>
-      <li>On your repository page, click the green <strong>Code</strong> button.</li>
-      <li>Select the <strong>Local</strong> tab and copy the HTTPS URL.</li>
-      <li>Open <strong>Visual Studio Code</strong>.</li>
-      <li>Open the Command Palette:
-        <ul>
-          <li><kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (macOS)</li>
-          <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows)</li>
-        </ul>
-      </li>
-      <li>Run <strong>Git: Clone</strong>, paste the URL, and choose a folder.<br>
-      Avoid folders that are automatically synced by tools like Google Drive, Dropbox, or OneDrive, as they can interfere with Git.
-      Many people keep their coding projects in a dedicated folder (for example, a folder named "Projects" or "Code").</li>
-    </ol>
-    <p>Visual Studio Code will download the project and open it for you.</p>
-  </div>
+## VS Code
 
-  <div id="tab-4" class="tab-panel">
-    <ol>
-      <li>On your repository page, click the green <strong>Code</strong> button.</li>
-      <li>Select the <strong>Local</strong> tab and copy the HTTPS URL.</li>
-      <li>Open <strong>Positron</strong>.</li>
-      <li>Open the Command Palette:
-        <ul>
-          <li><kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (macOS)</li>
-          <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows)</li>
-        </ul>
-      </li>
-      <li>Run <strong>Git: Clone</strong>, paste the URL, and choose a folder.<br>
-      Avoid folders that are automatically synced by tools like Google Drive, Dropbox, or OneDrive, as they can interfere with Git.
-      Many people keep their coding projects in a dedicated folder (for example, a folder named "Projects" or "Code").</li>
-    </ol>
-    <p>Positron will download the project and open it for you.</p>
-  </div>
+1. On your repository page, click the green **Code** button.
+2. Select the **Local** tab and copy the HTTPS URL.
+3. Open **Visual Studio Code**.
+4. Open the Command Palette:
+   - <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (macOS)
+   - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows)
+5. Run **Git: Clone**, paste the URL, and choose a folder.  
+Avoid folders that are automatically synced by tools like Google Drive, Dropbox, or OneDrive, as they can interfere with Git.  
+Many people keep their coding projects in a dedicated folder (for example, a folder named "Projects" or "Code").
 
-  <div id="tab-5" class="tab-panel">
-    <ol>
-      <li>On your repository page, click the green <strong>Code</strong> button.</li>
-      <li>Select the <strong>Local</strong> tab and copy the HTTPS URL.</li>
-      <li>Open <strong>RStudio</strong>.</li>
-      <li>Go to <strong>File</strong> → <strong>New Project...</strong></li>
-      <li>Select <strong>Version Control</strong>, then <strong>Git</strong>.</li>
-      <li>Paste the repository URL and choose a folder.<br>
-      Avoid folders that are automatically synced by tools like Google Drive, Dropbox, or OneDrive, as they can interfere with Git.
-      Many people keep their coding projects in a dedicated folder (for example, a folder named "Projects" or "Code").</li>
-      <li>Click <strong>Create Project</strong>.</li>
-    </ol>
-    <p>RStudio will download the project and open it for you.</p>
-  </div>
-</div>
+Visual Studio Code will download the project and open it for you.
+
+## Positron
+
+1. On your repository page, click the green **Code** button.
+2. Select the **Local** tab and copy the HTTPS URL.
+3. Open **Positron**.
+4. Open the Command Palette:
+   - <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (macOS)
+   - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows)
+5. Run **Git: Clone**, paste the URL, and choose a folder.  
+Avoid folders that are automatically synced by tools like Google Drive, Dropbox, or OneDrive, as they can interfere with Git.  
+Many people keep their coding projects in a dedicated folder (for example, a folder named "Projects" or "Code").
+
+Positron will download the project and open it for you.
+
+## RStudio
+
+1. On your repository page, click the green **Code** button.
+2. Select the **Local** tab and copy the HTTPS URL.
+3. Open **RStudio**.
+4. Go to **File** → **New Project...**
+5. Select **Version Control**, then **Git**.
+6. Paste the repository URL and choose a folder.  
+Avoid folders that are automatically synced by tools like Google Drive, Dropbox, or OneDrive, as they can interfere with Git.  
+Many people keep their coding projects in a dedicated folder (for example, a folder named "Projects" or "Code").
+7. Click **Create Project**.
+
+RStudio will download the project and open it for you.
+
+{% endtab_group %}
 
 ---
 
@@ -185,5 +169,3 @@ You can start editing files, running analyses, and saving your work as commits.
 
 
 ➡️ **[Using Git in practice](./practice)**
-
-<script src="/assets/js/tabs.js"></script>

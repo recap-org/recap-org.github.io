@@ -40,53 +40,39 @@ You work and access the project files as usual, while execution happens inside t
 You need **Docker Desktop** installed and running on your machine.  
 This is a one-time setup.
 
-<div class="tab-container">
-  <div class="tab-buttons">
-    <button class="active" data-tab="tab-1"><i class="fa-brands fa-apple"></i> macOS</button>
-    <button data-tab="tab-2"><i class="fa-brands fa-microsoft"></i> Windows</button>
-  </div>
+{% tab_group "os" %}
 
-  <div id="tab-1" class="tab-panel active">
-    <blockquote>
-      <p>🎥 <strong>Prefer watching instead of reading?</strong><br>
-      Short walkthrough of these steps below (no audio).</p>
-    </blockquote>
-    <ol>
-      <li>
-        Go to <a href="https://www.docker.com/" target="_blank">https://www.docker.com/</a> and download <strong>Docker Desktop</strong>. Choose:
-        <ul>
-          <li><strong>Apple Silicon</strong> if your Mac is from 2020 or later (M1, M2, M3)</li>
-          <li><strong>Intel Chip</strong> if your Mac is older</li>
-        </ul>
-      </li>
-      <li>Install Docker Desktop</li>
-      <li>
-        Open <strong>Docker Desktop</strong> for the first time.
-        <ul>
-          <li>If Docker offers a setup choice, select the <strong>recommended</strong> configuration. You may be asked to confirm permissions (for example, using your Mac password or Touch ID).</li>
-          <li>You can skip prompts about creating a Docker Hub account. <strong>You do not need a Docker Hub account</strong> to use RECAP templates.</li>
-        </ul>
-      </li>
-      <li>Wait until Docker Desktop indicates that Docker is <strong>running</strong>.</li>
-    </ol>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-QEnXvoszfw?si=IzpMg7k9FFIV-7DJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-  <div id="tab-2" class="tab-panel">
-    <blockquote>
-      <p>🎥 <strong>Prefer watching instead of reading?</strong><br>
-      Short walkthrough of these steps below (no audio).</p>
-    </blockquote>
-    <ol>
-      <li>Open <strong>Windows Terminal</strong></li>
-      <li>Run: <code>wsl --install</code></li>
-      <li>Restart your computer when prompted</li>
-      <li>Open the <strong>Microsoft Store</strong></li>
-      <li>Install <strong>Docker Desktop</strong></li>
-      <li>Open Docker Desktop and wait until it reports that it is running</li>
-    </ol>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_ewYjYDF1K0?si=_i-hL6fT2BgWBJa5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</div>
+## macOS
+
+🎥 **Prefer watching instead of reading?**  
+Short walkthrough of these steps below (no audio).
+
+1. Go to [https://www.docker.com/](https://www.docker.com/) and download **Docker Desktop**. Choose:
+   - **Apple Silicon** if your Mac is from 2020 or later (M1, M2, M3)
+   - **Intel Chip** if your Mac is older
+2. Install Docker Desktop
+3. Open **Docker Desktop** for the first time.
+   - If Docker offers a setup choice, select the **recommended** configuration. You may be asked to confirm permissions (for example, using your Mac password or Touch ID).
+   - You can skip prompts about creating a Docker Hub account. **You do not need a Docker Hub account** to use RECAP templates.
+4. Wait until Docker Desktop indicates that Docker is **running**.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-QEnXvoszfw?si=IzpMg7k9FFIV-7DJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Windows
+
+🎥 **Prefer watching instead of reading?**  
+Short walkthrough of these steps below (no audio).
+
+1. Open **Windows Terminal**
+2. Run: `wsl --install`
+3. Restart your computer when prompted
+4. Open the **Microsoft Store**
+5. Install **Docker Desktop**
+6. Open Docker Desktop and wait until it reports that it is running
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_ewYjYDF1K0?si=_i-hL6fT2BgWBJa5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+{% endtab_group %}
 
 Installing Docker may take a few minutes and may require restarting your computer.
 
@@ -148,5 +134,3 @@ To return to your Dev Container, open up Visual Studio Code and select File > Op
 ### Things are broken - How do I start over?
 
 You can delete your existing container and create a new one with Visual Studio Code at any time. Open Docker Desktop. Select your container and delete it. This will reset the environment to its original state, while preserving your files.
-
-<script src="/assets/js/tabs.js"></script>

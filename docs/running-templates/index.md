@@ -71,7 +71,7 @@ This option lets you keep a history of your changes and collaborate with others.
 
 **Using Git makes it straightforward to experiment—whether manually or with AI tools—knowing that you can always inspect what changed and roll back to a previous version if needed.**
 
-If you would like a gentle introduction focused on the RECAP workflow (no command line required), see **[Version control in RECAP](/docs/version-control)**.
+If you would like a gentle introduction focused on the RECAP workflow (no command line required), see our page on **[how to get started wit Git](/docs/version-control)**.
 
 
 If you’re unsure, you can start with ZIP and adopt Git later.

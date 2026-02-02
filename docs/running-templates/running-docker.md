@@ -40,53 +40,39 @@ You work and access the project files as usual, while execution happens inside t
 You need **Docker Desktop** installed and running on your machine.  
 This is a one-time setup.
 
-<div class="tab-container">
-  <div class="tab-buttons">
-    <button class="active" data-category="os" data-value="macOS"><img src="/assets/static/macos.svg" alt="macOS" /> macOS</button>
-    <button data-category="os" data-value="Windows"><img src="/assets/static/windows.svg" alt="Windows" /> Windows</button>
-  </div>
+{% tab_group "os" %}
 
-  <div id="panel-os-macOS" class="tab-panel active" data-category="os">
-    <blockquote>
-      <p>🎥 <strong>Prefer watching instead of reading?</strong><br>
-      Short walkthrough of these steps below (no audio).</p>
-    </blockquote>
-    <ol>
-      <li>
-        Go to <a href="https://www.docker.com/" target="_blank">https://www.docker.com/</a> and download <strong>Docker Desktop</strong>. Choose:
-        <ul>
-          <li><strong>Apple Silicon</strong> if your Mac is from 2020 or later (M1, M2, M3)</li>
-          <li><strong>Intel Chip</strong> if your Mac is older</li>
-        </ul>
-      </li>
-      <li>Install Docker Desktop</li>
-      <li>
-        Open <strong>Docker Desktop</strong> for the first time.
-        <ul>
-          <li>If Docker offers a setup choice, select the <strong>recommended</strong> configuration. You may be asked to confirm permissions (for example, using your Mac password or Touch ID).</li>
-          <li>You can skip prompts about creating a Docker Hub account. <strong>You do not need a Docker Hub account</strong> to use RECAP templates.</li>
-        </ul>
-      </li>
-      <li>Wait until Docker Desktop indicates that Docker is <strong>running</strong>.</li>
-    </ol>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-QEnXvoszfw?si=IzpMg7k9FFIV-7DJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-  <div id="panel-os-Windows" class="tab-panel" data-category="os">
-    <blockquote>
-      <p>🎥 <strong>Prefer watching instead of reading?</strong><br>
-      Short walkthrough of these steps below (no audio).</p>
-    </blockquote>
-    <ol>
-      <li>Open <strong>Windows Terminal</strong></li>
-      <li>Run: <code>wsl --install</code></li>
-      <li>Restart your computer when prompted</li>
-      <li>Open the <strong>Microsoft Store</strong></li>
-      <li>Install <strong>Docker Desktop</strong></li>
-      <li>Open Docker Desktop and wait until it reports that it is running</li>
-    </ol>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_ewYjYDF1K0?si=_i-hL6fT2BgWBJa5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</div>
+## macOS
+
+🎥 **Prefer watching instead of reading?**  
+Short walkthrough of these steps below (no audio).
+
+1. Go to [https://www.docker.com/](https://www.docker.com/) and download **Docker Desktop**. Choose:
+   - **Apple Silicon** if your Mac is from 2020 or later (M1, M2, M3)
+   - **Intel Chip** if your Mac is older
+2. Install Docker Desktop
+3. Open **Docker Desktop** for the first time.
+   - If Docker offers a setup choice, select the **recommended** configuration. You may be asked to confirm permissions (for example, using your Mac password or Touch ID).
+   - You can skip prompts about creating a Docker Hub account. **You do not need a Docker Hub account** to use RECAP templates.
+4. Wait until Docker Desktop indicates that Docker is **running**.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-QEnXvoszfw?si=IzpMg7k9FFIV-7DJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Windows
+
+🎥 **Prefer watching instead of reading?**  
+Short walkthrough of these steps below (no audio).
+
+1. Open **Windows Terminal**
+2. Run: `wsl --install`
+3. Restart your computer when prompted
+4. Open the **Microsoft Store**
+5. Install **Docker Desktop**
+6. Open Docker Desktop and wait until it reports that it is running
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_ewYjYDF1K0?si=_i-hL6fT2BgWBJa5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+{% endtab_group %}
 
 Installing Docker may take a few minutes and may require restarting your computer.
 

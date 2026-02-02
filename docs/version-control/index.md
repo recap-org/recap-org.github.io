@@ -68,18 +68,18 @@ This information will be attached to the changes you save.
 
 <div class="tab-container">
   <div class="tab-buttons">
-    <button class="active" data-tab="tab-1"><i class="fa-brands fa-apple"></i> macOS</button>
-    <button data-tab="tab-2"><i class="fa-brands fa-microsoft"></i> Windows</button>
+    <button class="active" data-category="os" data-value="macOS"><img src="/assets/static/macos.svg" alt="macOS" /> macOS</button>
+    <button data-category="os" data-value="Windows"><img src="/assets/static/windows.svg" alt="Windows" /> Windows</button>
   </div>
 
-  <div id="tab-1" class="tab-panel active">
+  <div id="panel-os-macOS" class="tab-panel active" data-category="os">
     <p>Git is included with macOS, but it needs to be enabled.</p>
     <p>Open the Terminal and type:<br/>
     <code>xcode-select --install</code></p>
     <p>A dialog will appear guiding you through the installation.</p>
   </div>
 
-  <div id="tab-2" class="tab-panel">
+  <div id="panel-os-Windows" class="tab-panel" data-category="os">
   <p>
   Download <a href="https://git-scm.com/" target="_blank">Git for Windows</a> and install it using the recommended settings.
   </p>
@@ -118,12 +118,12 @@ Git calls this **cloning** the repository.
 
 <div class="tab-container">
   <div class="tab-buttons">
-    <button class="active" data-tab="tab-3"><img src="/assets/static/vscode.svg" alt="" style="height: 1em; vertical-align: middle;"> VS Code</button>
-    <button data-tab="tab-4"><img src="/assets/static/positron.svg" alt="" style="height: 1em; vertical-align: middle;"> Positron</button>
-    <button data-tab="tab-5"><img src="/assets/static/rstudio.svg" alt="" style="height: 1em; vertical-align: middle;"> RStudio</button>
+    <button class="active" data-category="ide" data-value="vscode"><img src="/assets/static/vscode.svg" alt="VS Code" /> VS Code</button>
+    <button data-category="ide" data-value="positron"><img src="/assets/static/positron.svg" alt="Positron" /> Positron</button>
+    <button data-category="ide" data-value="rstudio"><img src="/assets/static/rstudio.svg" alt="RStudio" /> RStudio</button>
   </div>
 
-  <div id="tab-3" class="tab-panel active">
+  <div id="panel-ide-vscode" class="tab-panel active" data-category="ide">
     <ol>
       <li>On your repository page, click the green <strong>Code</strong> button.</li>
       <li>Select the <strong>Local</strong> tab and copy the HTTPS URL.</li>
@@ -141,7 +141,7 @@ Git calls this **cloning** the repository.
     <p>Visual Studio Code will download the project and open it for you.</p>
   </div>
 
-  <div id="tab-4" class="tab-panel">
+  <div id="panel-ide-positron" class="tab-panel" data-category="ide">
     <ol>
       <li>On your repository page, click the green <strong>Code</strong> button.</li>
       <li>Select the <strong>Local</strong> tab and copy the HTTPS URL.</li>
@@ -159,7 +159,7 @@ Git calls this **cloning** the repository.
     <p>Positron will download the project and open it for you.</p>
   </div>
 
-  <div id="tab-5" class="tab-panel">
+  <div id="panel-ide-rstudio" class="tab-panel" data-category="ide">
     <ol>
       <li>On your repository page, click the green <strong>Code</strong> button.</li>
       <li>Select the <strong>Local</strong> tab and copy the HTTPS URL.</li>
@@ -185,5 +185,3 @@ You can start editing files, running analyses, and saving your work as commits.
 
 
 ➡️ **[Using Git in practice](./practice)**
-
-<script src="/assets/js/tabs.js"></script>

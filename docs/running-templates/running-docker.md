@@ -42,11 +42,11 @@ This is a one-time setup.
 
 <div class="tab-container">
   <div class="tab-buttons">
-    <button class="active" data-tab="tab-1"><i class="fa-brands fa-apple"></i> macOS</button>
-    <button data-tab="tab-2"><i class="fa-brands fa-microsoft"></i> Windows</button>
+    <button class="active" data-category="os" data-value="macOS"><img src="/assets/static/macos.svg" alt="macOS" /> macOS</button>
+    <button data-category="os" data-value="Windows"><img src="/assets/static/windows.svg" alt="Windows" /> Windows</button>
   </div>
 
-  <div id="tab-1" class="tab-panel active">
+  <div id="panel-os-macOS" class="tab-panel active" data-category="os">
     <blockquote>
       <p>🎥 <strong>Prefer watching instead of reading?</strong><br>
       Short walkthrough of these steps below (no audio).</p>
@@ -71,7 +71,7 @@ This is a one-time setup.
     </ol>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/-QEnXvoszfw?si=IzpMg7k9FFIV-7DJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
-  <div id="tab-2" class="tab-panel">
+  <div id="panel-os-Windows" class="tab-panel" data-category="os">
     <blockquote>
       <p>🎥 <strong>Prefer watching instead of reading?</strong><br>
       Short walkthrough of these steps below (no audio).</p>

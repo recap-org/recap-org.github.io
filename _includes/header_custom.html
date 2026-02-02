@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     /* Tab container */
     .tab-container {
@@ -21,6 +18,9 @@
     }
 
     .tab-buttons button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         background: transparent;
         border: none;
         padding: 0.5rem 1rem;
@@ -29,6 +29,12 @@
         color: #555;
         border-bottom: 2px solid transparent;
         transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-buttons button img {
+        width: 1.2em;
+        height: 1.2em;
+        object-fit: contain;
     }
 
     .tab-buttons button.active {
@@ -50,3 +56,6 @@
         max-width: 100%;
     }
 </style>
+
+<script src="/assets/js/preferences.js"></script>
+<script src="/assets/js/tabs.js"></script>

@@ -1,174 +1,75 @@
-# just-the-docs-template
+# RECAP: Reproducible Environments for Collaborative Academic Projects
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+This repository contains the documentation site for RECAP, a framework for creating reproducible computational environments for academic research collaboration.
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+## About RECAP
 
-More specifically, the created site:
+RECAP provides a standardized approach to setting up reproducible computational environments using Docker and devcontainers. It enables researchers to work collaboratively on projects while ensuring that all participants have consistent development environments and dependencies.
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
+## Related Repositories
 
-To get started with creating a site, simply:
+- **[recap-org/images](https://github.com/recap-org/images)** – Builds the Docker container images that serve as the foundation for RECAP development environments. These pre-configured images provide all necessary tools and dependencies for development work.
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+- **[template-r-small](https://github.com/recap-org/template-r-small)**, **[template-r-medium](https://github.com/recap-org/template-r-medium)**, **[template-r-large](https://github.com/recap-org/template-r-large)** – Template repositories for R-based projects at various scales. These provide starting points for new RECAP projects with appropriate structure and tooling.
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](#hosting-your-docs-from-an-existing-project-repo).
+## Building and Development
 
-After completing the creation of your new site on GitHub, update it as needed:
+This documentation site is built with [Jekyll](https://jekyllrb.com/) and the [Just the Docs](https://just-the-docs.com/) theme.
 
-## Replace the content of the template pages
+### Prerequisites
 
-Update the following files to your own content:
+This repository includes a devcontainer configuration for development. The easiest way to build and develop is to use the devcontainer:
 
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
+1. **In GitHub Codespaces**: Simply open the repository in Codespaces, which will automatically use the devcontainer.
 
-## Changing the version of the theme and/or Jekyll
+2. **Locally with Docker**: Use VS Code's Dev Containers extension to open the repository in a container.
 
-Simply edit the relevant line(s) in the `Gemfile`.
+### Building the Site
 
-## Adding a plugin
+Once inside the devcontainer environment:
 
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
+1. Install dependencies:
+   ```bash
+   bundle install
+   ```
 
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
+2. Build and serve locally:
+   ```bash
+   bundle exec jekyll serve
+   ```
 
-- Add the following to your site's `Gemfile`:
+   The site will be available at `http://localhost:4000`
 
-  ```ruby
-  gem "jekyll-default-layout"
-  ```
+3. Alternatively, use the included Makefile:
+   ```bash
+   make serve
+   ```
 
-- And add the following to your site's `_config.yml`:
+The built site is stored in the `_site` directory.
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
-  ```
+## Contributing
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+We welcome contributions! Here's how to get involved and where to ask questions:
 
-## Publishing your site on GitHub Pages
+### Where to Ask Questions
 
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
+- **Questions about this documentation site or RECAP in general** – Open an issue or discussion in [this repository](https://github.com/recap-org/recap-org.github.io)
+- **Questions about a specific RECAP template** (template-r-small, template-r-medium, template-r-large) – Ask in that template's repository
+- **Questions about the devcontainer images** – Ask in the [recap-org/images](https://github.com/recap-org/images) repository
 
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
+### How to Contribute
 
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
+1. **Fork and Clone**: Fork this repository and clone it to your local machine or open in a devcontainer.
 
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
+2. **Create a Branch**: Create a new branch for your changes:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-2.  Push your updated `_config.yml` to your site on GitHub.
+3. **Make Your Changes**: Edit or create documentation files in the `docs/` directory using Markdown format.
 
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
+4. **Preview Your Changes**: Use `bundle exec jekyll serve` (or `make serve`) to preview your changes locally at `http://localhost:4000`.
 
-## Building and previewing your site locally
+5. **Commit and Push**: Commit your changes with clear messages and push to your fork.
 
-Assuming [Jekyll] and [Bundler] are installed on your computer:
-
-1.  Change your working directory to the root directory of your site.
-
-2.  Run `bundle install`.
-
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
-
-    The built site is stored in the directory `_site`.
-
-## Publishing your built site on a different platform
-
-Just upload all the files in the directory `_site`.
-
-## Customization
-
-You're free to customize sites that you create with this template, however you like!
-
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
-
-## Hosting your docs from an existing project repo
-
-You might want to maintain your docs in an existing project repo. Instead of creating a new repo using the [just-the-docs template](https://github.com/just-the-docs/just-the-docs-template), you can copy the template files into your existing repo and configure the template's Github Actions workflow to build from a `docs` directory. You can clone the template to your local machine or download the `.zip` file to access the files.
-
-### Copy the template files
-
-1.  Create a `.github/workflows` directory at your project root if your repo doesn't already have one. Copy the `pages.yml` file into this directory. GitHub Actions searches this directory for workflow files.
-
-2.  Create a `docs` directory at your project root and copy all remaining template files into this directory.
-
-### Modify the GitHub Actions workflow
-
-The GitHub Actions workflow that builds and deploys your site to Github Pages is defined by the `pages.yml` file. You'll need to edit this file to that so that your build and deploy steps look to your `docs` directory, rather than the project root.
-
-1.  Set the default `working-directory` param for the build job.
-
-    ```yaml
-    build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: docs
-    ```
-
-2.  Set the `working-directory` param for the Setup Ruby step.
-
-    ```yaml
-    - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-          cache-version: 0
-          working-directory: '${{ github.workspace }}/docs'
-    ```
-
-3.  Set the path param for the Upload artifact step:
-
-    ```yaml
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/_site/
-    ```
-
-4.  Modify the trigger so that only changes within the `docs` directory start the workflow. Otherwise, every change to your project (even those that don't affect the docs) would trigger a new site build and deploy.
-
-    ```yaml
-    on:
-      push:
-        branches:
-          - "main"
-        paths:
-          - "docs/**"
-    ```
-
-## Licensing and Attribution
-
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
-
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Jekyll]: https://jekyllrb.com
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[Bundler]: https://bundler.io
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
-[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
-[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
-[MIT License]: https://en.wikipedia.org/wiki/MIT_License
-[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+6. **Submit a Pull Request**: Open a pull request against the main repository with a description of your changes.

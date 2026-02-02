@@ -73,16 +73,16 @@ This information will be attached to the changes you save.
   </div>
 
   <div id="tab-1" class="tab-panel active">
-    Git is included with macOS, but it needs to be enabled.
-
-    Open the <strong>Terminal</strong> and type:
-    <code>xcode-select --install</code>
-
-    A dialog will appear guiding you through the installation.
+    <p>Git is included with macOS, but it needs to be enabled.</p>
+    <p>Open the Terminal and type:<br/>
+    <code>xcode-select --install</code></p>
+    <p>A dialog will appear guiding you through the installation.</p>
   </div>
 
   <div id="tab-2" class="tab-panel">
-    Download <a href="https://git-scm.com/" target="_blank">Git for Windows</a> and install it using the recommended settings.
+  <p>
+  Download <a href="https://git-scm.com/" target="_blank">Git for Windows</a> and install it using the recommended settings.
+  </p>
   </div>
 </div>
 

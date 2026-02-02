@@ -244,7 +244,9 @@ The underlying Git concepts are the same across all editors.
   </div>
 
   <div id="tab-4" class="tab-panel">
-    Git in Positron works exactly like in VS Code. So you can follow the same steps as in the VS Code video.
+    <p>
+        Git in Positron works exactly like in VS Code. So you can follow the same steps as in the VS Code video.
+    </p>
   </div>
 
   <div id="tab-5" class="tab-panel">
@@ -326,7 +328,7 @@ If you ever feel unsure:
 - push when something important works,
 - and remember that most mistakes are reversible.
 
-To see how these ideas translate into concrete actions, watch the **IDE-specific walkthrough videos** in Part II above.
+To see how these ideas translate into concrete actions, watch the **IDE-specific walkthrough videos** above.
 
 Git is there to make research **safer, not harder**.
 
@@ -337,3 +339,4 @@ Reinforce:
 - Concepts first, tools second
 - Conservative workflows scale best
 -->
+

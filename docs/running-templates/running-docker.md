@@ -148,5 +148,3 @@ To return to your Dev Container, open up Visual Studio Code and select File > Op
 ### Things are broken - How do I start over?
 
 You can delete your existing container and create a new one with Visual Studio Code at any time. Open Docker Desktop. Select your container and delete it. This will reset the environment to its original state, while preserving your files.
-
-<script src="/assets/js/tabs.js"></script>

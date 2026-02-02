@@ -72,7 +72,7 @@ You do **not** need to use Git from the command line. Visual Studio Code provide
 
 Using Git ensures that your work is preserved even if the Codespace is deleted, and allows others to reproduce or build on your analysis.
 
-If you would like to understand what Git is and how to use it, see our primer on **[version control with Git](/docs/version-control)**.
+If you would like to understand what Git is and how to use it, see our page on how to **[get started with Git](/docs/version-control)**.
 
 ---
 

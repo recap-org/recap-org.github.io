@@ -122,7 +122,7 @@ Other editors may work, but are not covered here.
      2. Open the new repository in Visual Studio Code.  
         You can do this by cloning the repository directly from VS Code.
 
-        (Cloning a repository using VS Code is covered in **[Version control in RECAP](/docs/version-control)**.)
+        (Cloning a repository using VS Code is covered in **[How to get started with Git](/docs/version-control)**.)
 
 5. Open the Command Palette in Visual Studio Code  
    (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on macOS, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Windows), then run:

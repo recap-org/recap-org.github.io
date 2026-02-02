@@ -5,7 +5,7 @@ theme: just-the-docs
 url: https://recap-org.github.io
 
 aux_links:
-  Github: https://github.com/recap-org/recap-org.github.io
+  RECAP on GitHub: https://github.com/recap-org/recap-org.github.io
 
 mermaid:
   version: "11.12.2"

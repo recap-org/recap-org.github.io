@@ -81,9 +81,7 @@ module Jekyll
     def markdownify(content)
       # Use Kramdown directly
       require 'kramdown'
-      html = Kramdown::Document.new(content).to_html
-      # Remove outer <p> tags if present
-      html.gsub(/<\/?p>/, '').strip
+      Kramdown::Document.new(content).to_html.strip
     end
 
     def indent(text, spaces)

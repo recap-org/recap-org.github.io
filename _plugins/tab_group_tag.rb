@@ -7,12 +7,12 @@ module Jekyll
 
     def render(context)
       content = super
-      
+
       # Split content by level 2 headings (##)
       sections = parse_sections(content)
-      
+
       # Generate HTML
-      generate_html(@category, sections)
+      generate_html(@category, sections, context)
     end
 
     private
@@ -50,7 +50,7 @@ module Jekyll
       label.gsub(/\s+/, '').gsub(/[^a-zA-Z0-9]/, '').downcase
     end
 
-    def generate_html(category, sections)
+    def generate_html(category, sections, context)
       return "" if sections.empty?
 
       # Generate button HTML
@@ -63,7 +63,7 @@ module Jekyll
       panels_html = sections.map.with_index do |section, index|
         active = index == 0 ? ' active' : ''
         panel_id = "panel-#{category}-#{section[:value]}"
-        markdownified_content = markdownify(section[:content])
+        markdownified_content = markdownify(section[:content], context)
         "<div id=\"#{panel_id}\" class=\"tab-panel#{active}\" data-category=\"#{category}\">\n#{indent(markdownified_content, 4)}\n  </div>"
       end.join("\n  ")
 
@@ -78,10 +78,10 @@ module Jekyll
       HTML
     end
 
-    def markdownify(content)
-      # Use Kramdown directly
-      require 'kramdown'
-      Kramdown::Document.new(content).to_html.strip
+    def markdownify(content, context)
+      site = context.registers[:site]
+      converter = site.find_converter_instance(Jekyll::Converters::Markdown)
+      converter.convert(content).strip
     end
 
     def indent(text, spaces)

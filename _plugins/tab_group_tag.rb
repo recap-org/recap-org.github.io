@@ -64,7 +64,7 @@ module Jekyll
         active = index == 0 ? ' active' : ''
         panel_id = "panel-#{category}-#{section[:value]}"
         markdownified_content = markdownify(section[:content], context)
-        "<div id=\"#{panel_id}\" class=\"tab-panel#{active}\" data-category=\"#{category}\">\n#{indent(markdownified_content, 4)}\n  </div>"
+        "<div id=\"#{panel_id}\" class=\"tab-panel#{active}\" data-category=\"#{category}\">\n  #{markdownified_content}\n  </div>"
       end.join("\n  ")
 
       <<~HTML
@@ -82,10 +82,6 @@ module Jekyll
       site = context.registers[:site]
       converter = site.find_converter_instance(Jekyll::Converters::Markdown)
       converter.convert(content).strip
-    end
-
-    def indent(text, spaces)
-      text.lines.map { |line| ' ' * spaces + line }.join
     end
   end
 end

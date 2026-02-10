@@ -1,8 +1,10 @@
 ---
-title: Building (make)
+title: Building with make
 layout: home
 nav_order: 5
 ---
+
+# Building with `make`
 
 ## What problem does `make` solve?
 

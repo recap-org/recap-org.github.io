@@ -64,7 +64,7 @@ The **Medium** template introduces **structure and short-run reproducibility**.
 It typically includes:
 - one script (or notebook) for **data cleaning**,
 - one script (or notebook) for **analysis and reporting**,
-- simple [build scripts](/docs/build) to ensure that steps are run in the correct order.
+- simple [build scripts](/docs/building-with-make) to ensure that steps are run in the correct order.
 
 The analysis file remains the final deliverable.
 
@@ -96,7 +96,7 @@ It includes:
 - multiple scripts for data ingestion and cleaning,
 - multiple analysis scripts,
 - several deliverables (paper, appendix, presentation),
-- a [build pipeline](/docs/build) that ties all components together,
+- a [build pipeline](/docs/building-with-make) that ties all components together,
 - explicit [dependency management](/docs/dependency-management) to ensure long-run reproducibility.
 
 In addition to structured workflows, the Large template records the software environment used by the project. This makes it possible to reproduce results reliably even as programming languages and packages evolve over time.

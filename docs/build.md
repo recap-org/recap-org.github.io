@@ -176,5 +176,17 @@ flowchart LR;
     u1-->a;
 ```
 
+### Use `make` to run other commands
+
+In addition to running scripts, you can also use `make` to run other commands that are necessary for your project. For example, you can use it to run tests or to clean up intermediate files. To do so, you just need to declare a target that is never produced by any of your scripts (a so-called "phony" target), and then declare the commands to run for that target. For example, you can declare a `clean` target that deletes all the intermediate files:
+
+```makefile
+clean:
+    rm -rf intermediate_files/
+```
+
+Our medium and large templates make heavy use of this feature and declare a series of targets that allow you to run useful commands for your project. You can discover them by typing `make help` in the terminal, which will print a list of all the "phony" targets declared in the `Makefile` along with a brief description of what they do.
 
 ## More resources on `make`
+
+- <a href="https://makefiletutorial.com/" target="_blank">Learn Makefiles by example</a>

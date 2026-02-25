@@ -54,10 +54,9 @@ Each template provides a complete, [containerized environment](/docs/running-tem
         <img src="assets/static/r.svg" alt="R logo" class="language-logo">
         <span>R</span>
       </button>
-      <button type="button" class="language-btn" data-language="stata" disabled>
+      <button type="button" class="language-btn" data-language="stata">
         <img src="assets/static/stata.svg" alt="Stata logo" class="language-logo">
         <span>Stata</span>
-        <span class="coming-soon-badge">coming soon</span>
       </button>
       <button type="button" class="language-btn" data-language="python" disabled>
         <img src="assets/static/python.svg" alt="Python logo" class="language-logo">

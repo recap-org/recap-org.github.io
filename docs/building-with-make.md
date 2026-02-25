@@ -118,12 +118,15 @@ The `Makefile` will contain commands that run Python scripts or render reports. 
 
 ## Stata
 
-Stata projects also fit naturally into this pattern.
+In R-based projects, the `Makefile` runs **terminal commands** that execute Stata `.do` files. The terminal command to run a Stata script in batch mode (i.e., in the Terminal) looks like this:
 
-The `Makefile` simply calls Stata in batch mode to run `.do` files. Dependencies and outputs are handled in exactly the same way.
+```bash
+stata-mp -b do path/to/script.do
+```
 
-*(Stata examples coming soon.)*
+The exact command may vary depending on your setup and Stata version (`stata-mp`, `stata-se`, `stata-be`), but the key point is that you can run Stata scripts from the terminal, and `make` can run those commands for you.
 
+The output will be a `.log` file containing the results of the script, and any other files that the script produces (for example, tables or figures). 
 {% endtab_group %}
 
 ### Declaring dependencies
@@ -144,7 +147,7 @@ In the `Makefile`, you declare these relationships explicitly. Once they are dec
 
 ```makefile
 analysis.pdf: analysis.qmd data.csv
-	quarto render analysis.qmd
+    quarto render analysis.qmd
 ```
 
 This rule means:
@@ -162,7 +165,19 @@ If neither changes, `make` does nothing.
 
 ## Stata
 
-*(Stata example coming soon.)*
+```makefile
+analysis.log: analysis.do data.csv
+    stata -b analysis.do
+```
+
+This rule means:
+
+- `analysis.log` is the file we want to produce (the output of the Stata `.do` file),
+- it depends on `analysis.do` and `data.csv`,
+- it is produced by running `stata -b analysis.do`.
+
+If either `analysis.do` or `data.csv` changes, `make` will rebuild `analysis.log`.
+If neither changes, `make` does nothing.
 
 {% endtab_group %}
 
@@ -225,10 +240,10 @@ The `Makefile` declares which files each step produces and which files it depend
 
 ```makefile
 analysis: analysis.R city.csv state.csv
-	Rscript analysis.R
+    Rscript analysis.R
 
 city.csv state.csv: data.R raw.csv
-	Rscript data.R
+    Rscript data.R
 ```
 
 Once this file exists, you can ask `make` to build the analysis, and it will automatically run the required steps in the correct order.
@@ -251,11 +266,30 @@ You declare which Python scripts produce which files, and which files are requir
 
 ## Stata
 
-Stata projects follow the same pattern.
+In an Stata-based project, this often means:
 
-Each `.do` file produces one or more outputs, and the `Makefile` records which files must exist before a given step can run.
+- one `.do` file that prepares data,
+- one `.do` file that runs the analysis.
 
-*(Stata example coming soon.)*
+The `Makefile` declares which files each step produces and which files it depends on.
+
+```makefile
+analysis: analysis.do city.csv state.csv
+    Rscript analysis.do
+
+city.csv state.csv: data.do raw.csv
+    Rscript data.do
+```
+
+Once this file exists, you can ask `make` to build the analysis, and it will automatically run the required steps in the correct order.
+
+```makefile
+# Build the analysis (and anything it depends on)
+make analysis
+
+# Build only the processed data
+make city.csv
+```
 
 {% endtab_group %}
 
@@ -294,7 +328,7 @@ These conventions are not rules. They are defaults that work well for most proje
 
 ## R
 
-In R-based medium templates, we typically:
+In R-based medium templates, we:
 
 - use **Quarto documents** (`.qmd`) for main steps,
 - reserve `.R` files for libraries of reusable functions,
@@ -327,10 +361,10 @@ The corresponding `Makefile` tracks only the main outputs of each step.
 all: analysis.pdf
 
 analysis.pdf: analysis.qmd utils.R data.pdf
-	quarto render analysis.qmd
+    quarto render analysis.qmd
 
 data.pdf: data.qmd utils.R
-	quarto render data.qmd
+    quarto render data.qmd
 ```
 
 ## Python
@@ -343,12 +377,50 @@ Each step has one main output, shared utilities are explicit dependencies, and t
 
 ## Stata
 
-Stata medium templates follow the same structure.
+In Stata-based medium templates, we:
 
-Each `.do` file produces a primary output, shared helper code is declared as a dependency, and `make` handles the execution order.
+- use `.do` files for data-related steps and libraries of reusable functions. Their main outputs (`.log` files) serve as build targets;
+- use `.tex` files for final reporting steps.
 
-*(Stata example coming soon.)*
+The resulting dependency structure looks like this:
 
+```mermaid
+flowchart LR;
+    d[data.do]
+    od(((data.log)))
+    c((city.csv))
+    s((state.csv))
+    a[analysis.do]
+    oa(((analysis.log)))
+    t[report.tex]
+    ot(((report.pdf)))
+    u[utils.do]
+
+    u --> d
+    d --> c
+    d --> s
+    d --> od
+    od --> a
+    u --> a
+    a --> oa
+    oa --> t
+    t --> ot
+```
+
+The corresponding `Makefile` tracks only the main outputs of each step.
+
+```makefile
+all: report.pdf
+
+report.pdf: report.tex analysis.log
+    pdflatex report.tex
+
+analysis.log: analysis.do utils.do data.log
+    stata-mp -b analysis.do
+
+data.log: data.do utils.do
+    stata-mp -b data.do
+```
 {% endtab_group %}
 
 ## A complex use case: the RECAP large template
@@ -414,9 +486,9 @@ You write scripts that produce files, and the `Makefile` takes care of how every
 
 ## R
 
-In R-based large templates, this typically means:
+In our large R template, this means:
 
-- data and analysis steps implemented as R scripts or Quarto documents,
+- data and analysis steps implemented as Quarto documents,
 - shared helper functions stored in `.R` library files,
 - LaTeX documents that reuse tables and figures generated earlier.
 
@@ -439,12 +511,20 @@ Python scripts generate cleaned data and analysis outputs, while shared utility 
 
 ## Stata
 
-Large Stata projects follow the same pipeline.
+In our large Stata template, this means:
 
-Stata `.do` files prepare data and produce analysis outputs, and shared helper code is reused across scripts. LaTeX documents then generate final PDFs.
+- data and analysis steps implemented as `.do` files,
+- shared helper functions stored in `.do` files,
+- LaTeX documents that reuse tables and figures generated earlier.
 
-*(Stata examples coming soon.)*
+Library files are declared as dependencies for both data and analysis steps, ensuring that changes to shared functions propagate correctly.
 
+You do **not** need to understand how the `Makefile` discovers targets or schedules execution in order to use the template. For day-to-day work, it is enough to know that:
+
+- changing a data script rebuilds cleaned data and downstream results,
+- changing a shared library may rebuild both data and analysis outputs,
+- changing analysis code rebuilds tables and figures,
+- changing LaTeX code only rebuilds PDFs.
 {% endtab_group %}
 
 ### Learning more about `make`

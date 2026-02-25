@@ -159,6 +159,6 @@ Dependency management for Python projects typically relies on a file that record
 
 In Stata projects, dependency management consists of recording required ado packages and ensuring consistent installation across machines.
 
-*(Coming soon.)*
+Our templates feature a `requirements.do` file, which lists all ado packages that the project depends on.
 
 {% endtab_group %}
